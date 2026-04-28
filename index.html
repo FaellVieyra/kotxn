@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KOTX-N — Essenciais Premium</title>
+  <meta name="description" content="KOTX-N — Básicos de precisão. Construídos para durar."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --preto: #0B0B0C;
+      --ouro: #C6A03A;
+      --marfim: #F3F0EA;
+      --ouro-escuro: #8a6e20;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-mono: 'Courier Prime', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--preto);
+      color: var(--marfim);
+      font-family: var(--font-display);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ── TOPBAR TRICOLOR ── */
+    .topbar {
+      width: 100%;
+      height: 5px;
+      display: flex;
+    }
+    .topbar span:nth-child(1) { flex: 2; background: var(--preto); border-top: 1px solid var(--ouro); }
+    .topbar span:nth-child(2) { flex: 1; background: var(--ouro); }
+    .topbar span:nth-child(3) { flex: 1; background: var(--marfim); }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 4rem;
+      border-bottom: 0.5px solid rgba(198,160,58,0.2);
+      position: sticky;
+      top: 0;
+      background: rgba(11,11,12,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--ouro);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--marfim);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--ouro); }
+
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--preto);
+      background: var(--ouro);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-cta:hover { background: #d4ad40; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-line {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 42%;
+      border-left: 0.5px solid rgba(198,160,58,0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-stripe {
+      width: 100%;
+    }
+    .hero-stripe-1 { flex: 2; background: var(--preto); }
+    .hero-stripe-2 { height: 6px; background: var(--ouro); }
+    .hero-stripe-3 { height: 4px; background: var(--marfim); }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--marfim);
+      margin-bottom: 0.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--ouro);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 300;
+      color: var(--marfim);
+      opacity: 0;
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+      max-width: 420px;
+      line-height: 1.7;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-subtitle span { color: var(--ouro); }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--preto);
+      background: var(--ouro);
+      padding: 1rem 2.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #d4ad40;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--marfim);
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(243,240,234,0.4);
+      padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover { color: var(--ouro); border-color: var(--ouro); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+    }
+    .divider-line { flex: 1; height: 0.5px; background: rgba(198,160,58,0.25); }
+    .divider-text {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--ouro);
+      opacity: 0.6;
+      padding: 0 1.5rem;
+    }
+
+    /* ── MANIFESTO ── */
+    .manifesto {
+      padding: 7rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .manifesto-number {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      opacity: 0.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .manifesto-text {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--marfim);
+    }
+
+    .manifesto-text em {
+      font-style: italic;
+      color: var(--ouro);
+    }
+
+    .manifesto-detail {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 2;
+      color: var(--marfim);
+      opacity: 0.5;
+    }
+
+    .manifesto-detail strong {
+      color: var(--ouro);
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    /* ── COLLECTIONS ── */
+    .collections {
+      padding: 5rem 4rem;
+      background: rgba(243,240,234,0.03);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 300;
+      color: var(--marfim);
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      opacity: 0.6;
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(198,160,58,0.15);
+    }
+
+    .collection-card {
+      background: var(--preto);
+      padding: 2.5rem;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      display: block;
+    }
+
+    .collection-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--ouro);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .collection-card:hover { background: rgba(198,160,58,0.05); }
+    .collection-card:hover::before { transform: scaleX(1); }
+
+    .card-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--ouro);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--marfim);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .card-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ouro);
+      opacity: 0;
+      transition: opacity 0.3s;
+      margin-top: 1.5rem;
+      display: block;
+    }
+
+    .collection-card:hover .card-arrow { opacity: 1; }
+
+    /* ── IDENTIDADE TRICOLOR ── */
+    .identity {
+      padding: 7rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .identity-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+
+    .identity-title {
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      font-weight: 300;
+      color: var(--marfim);
+      line-height: 1.3;
+    }
+
+    .palette-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .palette-row {
+      display: flex;
+      align-items: center;
+      height: 70px;
+      border: 0.5px solid rgba(198,160,58,0.1);
+      overflow: hidden;
+      transition: height 0.4s ease;
+    }
+
+    .palette-row:hover { height: 90px; }
+
+    .palette-swatch {
+      width: 80px;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .palette-info {
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .palette-name {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--marfim);
+    }
+
+    .palette-code {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ouro);
+      opacity: 0.7;
+    }
+
+    .palette-role {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--marfim);
+      opacity: 0.35;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── CONTATO / CTA FINAL ── */
+    .cta-final {
+      padding: 7rem 4rem;
+      text-align: center;
+      border-top: 0.5px solid rgba(198,160,58,0.15);
+      position: relative;
+    }
+
+    .cta-final-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--marfim);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-final-title em { color: var(--ouro); font-style: italic; }
+
+    .cta-final-sub {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--marfim);
+      opacity: 0.4;
+      margin-bottom: 3rem;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-whats {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--preto);
+      background: var(--ouro);
+      padding: 1rem 2.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-whats:hover { background: #d4ad40; }
+
+    .btn-insta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--marfim);
+      background: transparent;
+      border: 0.5px solid rgba(243,240,234,0.3);
+      padding: 1rem 2.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-insta:hover { border-color: var(--ouro); color: var(--ouro); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid rgba(198,160,58,0.15);
+      padding: 2.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--ouro);
+    }
+
+    .footer-info {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--marfim);
+      opacity: 0.3;
+    }
+
+    .footer-bar {
+      width: 100%;
+      height: 4px;
+      display: flex;
+    }
+    .footer-bar span:nth-child(1) { flex: 2; background: var(--preto); border-bottom: 1px solid rgba(198,160,58,0.3); }
+    .footer-bar span:nth-child(2) { flex: 1; background: var(--ouro); }
+    .footer-bar span:nth-child(3) { flex: 1; background: var(--marfim); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.5rem; min-height: 80vh; }
+      .hero-line { display: none; }
+      .manifesto { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .collections { padding: 4rem 1.5rem; }
+      .collections-grid { grid-template-columns: 1fr; }
+      .identity { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .cta-final { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra tricolor topo -->
+  <div class="topbar">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">KOTX-N</a>
+    <ul class="nav-links">
+      <li><a href="#colecoes">COLEÇÕES</a></li>
+      <li><a href="#identidade">A MARCA</a></li>
+      <li><a href="#contato">CONTATO</a></li>
+    </ul>
+    <a href="https://mont.ink/kotx-n" target="_blank" class="nav-cta">VER LOJA</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">COTEGIPE, BAHIA — BRASIL</p>
+    <h1 class="hero-title">KOT<em>X</em><br/>— N</h1>
+    <p class="hero-subtitle">
+      Básicos de <span>precisão</span>.<br/>
+      Construídos para durar.
+    </p>
+    <div class="hero-actions">
+      <a href="https://mont.ink/kotx-n" target="_blank" class="btn-primary">EXPLORAR COLEÇÃO</a>
+      <a href="#identidade" class="btn-secondary">SOBRE A MARCA</a>
+    </div>
+
+    <div class="hero-line">
+      <div class="hero-stripe hero-stripe-1"></div>
+      <div class="hero-stripe hero-stripe-2"></div>
+      <div class="hero-stripe hero-stripe-3"></div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider" style="padding: 0 4rem;">
+    <div class="divider-line"></div>
+    <span class="divider-text">COLEÇÕES</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- COLLECTIONS -->
+  <section class="collections" id="colecoes">
+    <div class="section-header">
+      <h2 class="section-title">Nossas coleções</h2>
+      <span class="section-tag">2025</span>
+    </div>
+
+    <div class="collections-grid">
+      <a href="https://mont.ink/camisetas-masculinas" target="_blank" class="collection-card">
+        <span class="card-label">01 — MASCULINO</span>
+        <div class="card-title">Camisetas<br/>Masculinas</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+      <a href="https://mont.ink/camisetas-femininas" target="_blank" class="collection-card">
+        <span class="card-label">02 — FEMININO</span>
+        <div class="card-title">Camisetas<br/>Femininas</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+      <a href="https://mont.ink/oversized" target="_blank" class="collection-card">
+        <span class="card-label">03 — OVERSIZED</span>
+        <div class="card-title">Coleção<br/>Oversized</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+      <a href="https://mont.ink/baby-long" target="_blank" class="collection-card">
+        <span class="card-label">04 — BABY LONG</span>
+        <div class="card-title">Baby Long</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+      <a href="https://mont.ink/bones" target="_blank" class="collection-card">
+        <span class="card-label">05 — ACESSÓRIOS</span>
+        <div class="card-title">Bonés</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+      <a href="https://mont.ink/mais_vendidos" target="_blank" class="collection-card">
+        <span class="card-label">06 — DESTAQUE</span>
+        <div class="card-title">Mais<br/>Vendidos</div>
+        <span class="card-arrow">VER COLEÇÃO →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" id="identidade">
+    <div>
+      <p class="manifesto-number">— MANIFESTO</p>
+      <p class="manifesto-text">
+        Não fazemos moda.<br/>
+        Fazemos <em>essenciais</em><br/>
+        que resistem ao tempo.
+      </p>
+    </div>
+    <div class="manifesto-detail">
+      <p><strong>QUALIDADE</strong><br/>100% algodão penteado, construção que dura.</p>
+      <br/>
+      <p><strong>PRECISÃO</strong><br/>Cada peça é pensada antes de ser produzida.</p>
+      <br/>
+      <p><strong>IDENTIDADE</strong><br/>Uma marca nascida em Barreiras, Bahia.<br/>Com raiz local, ambição global.</p>
+      <br/>
+      <p><strong>LOJA FÍSICA</strong><br/>Travessa Duque de Caxias, 119<br/>Centro · Cotegipe, Bahia</p>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider" style="padding: 0 4rem;">
+    <div class="divider-line"></div>
+    <span class="divider-text">IDENTIDADE VISUAL</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- PALETA -->
+  <section class="identity">
+    <div>
+      <p class="identity-label">— PALETA DA MARCA</p>
+      <h2 class="identity-title">Três cores.<br/>Uma assinatura.</h2>
+    </div>
+    <div class="palette-strip">
+      <div class="palette-row">
+        <div class="palette-swatch" style="background:#0B0B0C;"></div>
+        <div class="palette-info">
+          <span class="palette-name">Preto Editorial</span>
+          <span class="palette-code">#0B0B0C</span>
+          <span class="palette-role">DOMINANTE · 45%</span>
+        </div>
+      </div>
+      <div class="palette-row">
+        <div class="palette-swatch" style="background:#C6A03A;"></div>
+        <div class="palette-info">
+          <span class="palette-name">Ouro Sofisticado</span>
+          <span class="palette-code">#C6A03A</span>
+          <span class="palette-role">ASSINATURA · 27,5%</span>
+        </div>
+      </div>
+      <div class="palette-row" style="border-bottom: 0.5px solid rgba(198,160,58,0.1);">
+        <div class="palette-swatch" style="background:#F3F0EA;"></div>
+        <div class="palette-info">
+          <span class="palette-name" style="color:#0B0B0C;">Marfim Premium</span>
+          <span class="palette-code">#F3F0EA</span>
+          <span class="palette-role">RESPIRO · 27,5%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <h2 class="cta-final-title">Pronto para<br/>vestir <em>qualidade</em>?</h2>
+    <p class="cta-final-sub">LOJA ONLINE · WHATSAPP · LOJA FÍSICA</p>
+    <div class="cta-group">
+      <a href="https://wa.me/5577999293901" target="_blank" class="btn-whats">WHATSAPP</a>
+      <a href="https://mont.ink/kotx-n" target="_blank" class="btn-primary">LOJA ONLINE</a>
+      <a href="https://www.instagram.com/kotx.n" target="_blank" class="btn-insta">INSTAGRAM</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">KOTX-N</span>
+    <span class="footer-info">© 2025 KOTX-N · COTEGIPE, BA · 47900-172</span>
+    <span class="footer-info">atendimento@kotxn.com</span>
+  </footer>
+
+  <div class="footer-bar">
+    <span></span><span></span><span></span>
+  </div>
+
+</body>
+</html>
