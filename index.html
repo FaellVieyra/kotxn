@@ -124,19 +124,26 @@
       bottom: 0;
       width: 42%;
       border-left: 0.5px solid rgba(198,160,58,0.15);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
+      overflow: hidden;
     }
 
-    .hero-stripe {
+    .hero-line img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.92;
     }
-    .hero-stripe-1 { flex: 2; background: var(--preto); }
-    .hero-stripe-2 { height: 6px; background: var(--ouro); }
-    .hero-stripe-3 { height: 4px; background: var(--marfim); }
+
+    .hero-line::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0B0B0C 0%, transparent 20%),
+                  linear-gradient(to top, #0B0B0C 0%, transparent 12%);
+    }
+
+    .hero-stripe { display: none; }
 
     .hero-eyebrow {
       font-family: var(--font-mono);
@@ -233,13 +240,26 @@
       padding: 0 1.5rem;
     }
 
-    /* ── MANIFESTO ── */
     .manifesto {
       padding: 7rem 4rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
       align-items: center;
+    }
+
+    .manifesto-photo {
+      height: 520px;
+      overflow: hidden;
+      border: 0.5px solid rgba(198,160,58,0.15);
+    }
+
+    .manifesto-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.9;
     }
 
     .manifesto-number {
@@ -313,12 +333,28 @@
 
     .collection-card {
       background: var(--preto);
-      padding: 2.5rem;
+      padding: 0;
       text-decoration: none;
       position: relative;
       overflow: hidden;
       transition: background 0.4s;
       display: block;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s ease;
+      opacity: 0.85;
+    }
+
+    .collection-card:hover .card-img { transform: scale(1.03); opacity: 1; }
+
+    .card-body {
+      padding: 1.5rem 2rem 2rem;
     }
 
     .collection-card::before {
@@ -543,13 +579,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
       .hero { padding: 3rem 1.5rem; min-height: 80vh; }
       .hero-line { display: none; }
       .manifesto { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .manifesto-photo { height: 300px; }
       .collections { padding: 4rem 1.5rem; }
       .collections-grid { grid-template-columns: 1fr; }
       .identity { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
@@ -590,9 +626,7 @@
     </div>
 
     <div class="hero-line">
-      <div class="hero-stripe hero-stripe-1"></div>
-      <div class="hero-stripe hero-stripe-2"></div>
-      <div class="hero-stripe hero-stripe-3"></div>
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20photo%202%20800x1100px.png" alt="KOTX-N camiseta masculina Cotegipe Bahia"/>
     </div>
   </section>
 
@@ -612,34 +646,52 @@
 
     <div class="collections-grid">
       <a href="https://montink.com/kotx-n/camisetas-masculinas" target="_blank" class="collection-card">
-        <span class="card-label">01 — MASCULINO</span>
-        <div class="card-title">Camisetas<br/>Masculinas</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20photo%202%20800x1100px.png" alt="Camisetas Masculinas KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">01 — MASCULINO</span>
+          <div class="card-title">Camisetas<br/>Masculinas</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
       <a href="https://montink.com/kotx-n/camisetas-femininas" target="_blank" class="collection-card">
-        <span class="card-label">02 — FEMININO</span>
-        <div class="card-title">Camisetas<br/>Femininas</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20famale%202%20photo%20800x1100px.png" alt="Camisetas Femininas KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">02 — FEMININO</span>
+          <div class="card-title">Camisetas<br/>Femininas</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
       <a href="https://montink.com/kotx-n/oversized" target="_blank" class="collection-card">
-        <span class="card-label">03 — OVERSIZED</span>
-        <div class="card-title">Coleção<br/>Oversized</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20over%202%20photo%20800x1100px.png" alt="Coleção Oversized KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">03 — OVERSIZED</span>
+          <div class="card-title">Coleção<br/>Oversized</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
       <a href="https://montink.com/kotx-n/todos-os-produtos" target="_blank" class="collection-card">
-        <span class="card-label">04 — BABY LONG</span>
-        <div class="card-title">Baby Long</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20casal%20photo%20800x1100px.png" alt="Baby Long KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">04 — BABY LONG</span>
+          <div class="card-title">Baby Long</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
       <a href="https://montink.com/kotx-n/bones" target="_blank" class="collection-card">
-        <span class="card-label">05 — ACESSÓRIOS</span>
-        <div class="card-title">Bonés</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20over%202%20photo%20800x1100px.png" alt="Bonés KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">05 — ACESSÓRIOS</span>
+          <div class="card-title">Bonés</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
       <a href="https://montink.com/kotx-n/colecao-bahian-roots" target="_blank" class="collection-card">
-        <span class="card-label">06 — DESTAQUE</span>
-        <div class="card-title">Bahian<br/>Roots</div>
-        <span class="card-arrow">VER COLEÇÃO →</span>
+        <img class="card-img" src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20casal%20photo%20800x1100px.png" alt="Bahian Roots KOTX-N"/>
+        <div class="card-body">
+          <span class="card-label">06 — DESTAQUE</span>
+          <div class="card-title">Bahian<br/>Roots</div>
+          <span class="card-arrow">VER COLEÇÃO →</span>
+        </div>
       </a>
     </div>
   </section>
@@ -653,6 +705,9 @@
         Fazemos <em>essenciais</em><br/>
         que resistem ao tempo.
       </p>
+    </div>
+    <div class="manifesto-photo">
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Editorial%20fashion%20casal%20photo%20800x1100px.png" alt="KOTX-N — coleção masculina e feminina"/>
     </div>
     <div class="manifesto-detail">
       <p><strong>QUALIDADE</strong><br/>100% algodão penteado, construção que dura.</p>
