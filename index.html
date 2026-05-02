@@ -481,6 +481,96 @@
     }
 
     /* ── CONTATO / CTA FINAL ── */
+
+    /* ── LINE ART SECTION ── */
+    .lineart-section {
+      padding: 0;
+      background: rgba(243,240,234,0.04);
+      border-top: 0.5px solid rgba(198,160,58,0.2);
+      border-bottom: 0.5px solid rgba(198,160,58,0.2);
+    }
+
+    .lineart-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    .lineart-img {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lineart-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.6s ease;
+    }
+
+    .lineart-img:hover img { transform: scale(1.03); }
+
+    .lineart-content {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+      border-left: 0.5px solid rgba(198,160,58,0.2);
+    }
+
+    .lineart-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+      opacity: 0.7;
+    }
+
+    .lineart-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--marfim);
+      line-height: 1;
+    }
+
+    .lineart-stripe {
+      display: flex;
+      height: 6px;
+      width: 120px;
+      gap: 0;
+    }
+
+    .lineart-stripe span:nth-child(1) { flex: 2; background: var(--preto); border: 0.5px solid rgba(198,160,58,0.3); }
+    .lineart-stripe span:nth-child(2) { flex: 1; background: var(--ouro); }
+    .lineart-stripe span:nth-child(3) { flex: 1; background: var(--marfim); }
+
+    .lineart-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--marfim);
+      opacity: 0.7;
+      line-height: 1.8;
+      max-width: 420px;
+    }
+
+    .lineart-btn {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--preto);
+      background: var(--ouro);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    .lineart-btn:hover { background: #d4ad40; transform: translateY(-1px); }
+
     .cta-final {
       padding: 7rem 4rem;
       text-align: center;
@@ -590,6 +680,9 @@
       .manifesto-photo { height: 300px; }
       .collections { padding: 4rem 1.5rem; }
       .collections-grid { grid-template-columns: 1fr; }
+      .lineart-inner { grid-template-columns: 1fr; }
+      .lineart-img { height: 300px; }
+      .lineart-content { padding: 2rem 1.5rem; border-left: none; border-top: 0.5px solid rgba(198,160,58,0.2); }
       .identity { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
       .cta-final { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
@@ -695,6 +788,27 @@
           <span class="card-arrow">VER COLEÇÃO →</span>
         </div>
       </a>
+    </div>
+  </section>
+
+
+  <!-- LINE ART EXCLUSIVA -->
+  <section class="lineart-section">
+    <div class="lineart-inner">
+      <div class="lineart-img">
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/lineart.jpg" alt="Coleção Line Art KOTX-N — arquitetura histórica de Cotegipe"/>
+      </div>
+      <div class="lineart-content">
+        <p class="lineart-eyebrow">— COLEÇÃO EXCLUSIVA PREMIUM</p>
+        <h2 class="lineart-title">Line Art</h2>
+        <div class="lineart-stripe">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="lineart-text">
+          Uma homenagem em traços. A Coleção Line Art nasce do olhar cuidadoso sobre Cotegipe — suas igrejas, casas coloniais, rios e raízes. Cada peça carrega uma ilustração exclusiva que transforma a memória da cidade em arte vestível. Camisetas, canecas e garrafas que contam histórias de quem pertence a este lugar.
+        </p>
+        <a href="https://montink.com/kotx-n/colecao-line-art" target="_blank" class="lineart-btn">EXPLORAR LINE ART →</a>
+      </div>
     </div>
   </section>
 
