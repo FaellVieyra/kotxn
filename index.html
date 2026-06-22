@@ -4,13 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KOTX-N — Catálogo de Coleções</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-  <link rel="shortcut icon" href="/favicon-32x32.png"/>
   <meta name="description" content="KOTX-N — Coleções exclusivas nascidas em Cotegipe, Bahia."/>
   <meta name="facebook-domain-verification" content="38bgygmzd7sw6k30mc0n4s0j5efndr"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="shortcut icon" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/svg+xml" href="marca/vetores/vertice-lamina-isolada.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,6 +20,7 @@
       --ouro: #C6A03A;
       --marfim: #F3F0EA;
       --font-display: 'Cormorant Garamond', serif;
+      --font-cinzel: 'Cinzel', serif;
       --font-mono: 'Courier Prime', monospace;
     }
 
@@ -41,13 +43,13 @@
       opacity: 0.4;
     }
 
-    /* ── TOPBAR ── */
+    .lamina { display: inline-block; vertical-align: middle; color: var(--ouro); }
+
     .topbar { width: 100%; height: 5px; display: flex; }
     .topbar span:nth-child(1) { flex: 2; background: var(--preto); border-top: 1px solid rgba(198,160,58,0.4); }
     .topbar span:nth-child(2) { flex: 1; background: var(--ouro); }
     .topbar span:nth-child(3) { flex: 1; background: var(--marfim); }
 
-    /* ── NAV ── */
     nav {
       display: flex;
       justify-content: space-between;
@@ -62,13 +64,17 @@
     }
 
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--font-cinzel);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       color: var(--ouro);
       text-decoration: none;
     }
+    .nav-logo .lamina { height: 26px; width: auto; }
 
     .nav-edition {
       font-family: var(--font-mono);
@@ -90,7 +96,6 @@
     }
     .nav-cta:hover { background: #d4ad40; }
 
-    /* ── HERO / CAPA ── */
     .hero {
       min-height: 95vh;
       display: grid;
@@ -129,10 +134,7 @@
       animation: fadeUp 0.8s ease 0.4s forwards;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--ouro);
-    }
+    .hero-title em { font-style: italic; color: var(--ouro); }
 
     .hero-sub {
       font-size: 1.1rem;
@@ -188,10 +190,7 @@
     }
     .btn-ghost:hover { color: var(--ouro); border-color: var(--ouro); }
 
-    .hero-foto {
-      position: relative;
-      overflow: hidden;
-    }
+    .hero-foto { position: relative; overflow: hidden; }
 
     .hero-foto img {
       width: 100%;
@@ -208,12 +207,7 @@
       background: linear-gradient(to right, #0B0B0C 0%, transparent 30%);
     }
 
-    /* ── DIVIDER ── */
-    .divider {
-      display: flex;
-      align-items: center;
-      padding: 0 4rem;
-    }
+    .divider { display: flex; align-items: center; padding: 0 4rem; }
     .divider-line { flex: 1; height: 0.5px; background: rgba(198,160,58,0.2); }
     .divider-text {
       font-family: var(--font-mono);
@@ -224,8 +218,62 @@
       padding: 0 1.5rem;
       white-space: nowrap;
     }
+    .divider-lamina { padding: 2.5rem 4rem; }
+    .divider-lamina .lamina { height: 40px; width: auto; margin: 0 1.5rem; }
 
-    /* ── SOBRE COTEGIPE ── */
+    .assinatura {
+      padding: 6rem 4rem 5.5rem;
+      text-align: center;
+      border-top: 0.5px solid rgba(198,160,58,0.12);
+      border-bottom: 0.5px solid rgba(198,160,58,0.12);
+    }
+    .assinatura-eyebrow {
+      font-family: var(--font-cinzel);
+      font-size: 0.62rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      margin-bottom: 2.4rem;
+    }
+    .assinatura .lamina { height: 96px; width: auto; margin-bottom: 2rem; }
+    .assinatura-nome {
+      font-family: var(--font-cinzel);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--marfim);
+      font-weight: 400;
+    }
+    .assinatura-tagline {
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      color: var(--ouro);
+      margin-top: 1.2rem;
+    }
+    .assinatura-texto {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--marfim);
+      opacity: 0.7;
+      max-width: 46ch;
+      margin: 1.8rem auto 0;
+    }
+    .assinatura-link {
+      display: inline-block;
+      margin-top: 2.4rem;
+      font-family: var(--font-cinzel);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      border: 0.5px solid rgba(198,160,58,0.4);
+      padding: 0.85rem 1.9rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .assinatura-link:hover { background: rgba(198,160,58,0.08); border-color: var(--ouro); }
+
     .sobre {
       padding: 6rem 4rem;
       display: grid;
@@ -233,7 +281,6 @@
       gap: 6rem;
       align-items: center;
     }
-
     .sobre-numero {
       font-family: var(--font-mono);
       font-size: 0.6rem;
@@ -242,7 +289,6 @@
       opacity: 0.5;
       margin-bottom: 1.5rem;
     }
-
     .sobre-titulo {
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 300;
@@ -250,9 +296,7 @@
       color: var(--marfim);
       margin-bottom: 1.5rem;
     }
-
     .sobre-titulo em { font-style: italic; color: var(--ouro); }
-
     .sobre-texto {
       font-family: var(--font-mono);
       font-size: 0.78rem;
@@ -261,34 +305,7 @@
       opacity: 0.55;
     }
 
-    .sobre-foto {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sobre-foto img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0.88;
-    }
-
-    .sobre-foto::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 0.5px solid rgba(198,160,58,0.2);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* ── COLEÇÃO ── */
-    .colecao {
-      padding: 0;
-      position: relative;
-    }
-
+    .colecao { padding: 0; position: relative; }
     .colecao-header {
       padding: 5rem 4rem 3rem;
       display: grid;
@@ -296,7 +313,6 @@
       gap: 4rem;
       align-items: end;
     }
-
     .colecao-numero {
       font-family: var(--font-mono);
       font-size: 0.6rem;
@@ -305,16 +321,13 @@
       opacity: 0.5;
       margin-bottom: 1rem;
     }
-
     .colecao-titulo {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 300;
       line-height: 1;
       color: var(--marfim);
     }
-
     .colecao-titulo em { font-style: italic; color: var(--ouro); }
-
     .colecao-historia {
       font-family: var(--font-mono);
       font-size: 0.78rem;
@@ -323,24 +336,11 @@
       opacity: 0.55;
       margin-bottom: 2rem;
     }
-
-    .colecao-stripe {
-      display: flex;
-      height: 5px;
-      width: 100px;
-      margin-bottom: 2rem;
-    }
+    .colecao-stripe { display: flex; height: 5px; width: 100px; margin-bottom: 2rem; }
     .colecao-stripe span:nth-child(1) { flex: 2; background: var(--preto); border: 0.5px solid rgba(198,160,58,0.3); }
     .colecao-stripe span:nth-child(2) { flex: 1; background: var(--ouro); }
     .colecao-stripe span:nth-child(3) { flex: 1; background: var(--marfim); }
-
-    .colecao-foto {
-      width: 100%;
-      height: 600px;
-      overflow: hidden;
-      position: relative;
-    }
-
+    .colecao-foto { width: 100%; height: 600px; overflow: hidden; position: relative; }
     .colecao-foto img {
       width: 100%;
       height: 100%;
@@ -349,38 +349,22 @@
       transition: transform 0.8s ease;
       opacity: 0.88;
     }
-
     .colecao-foto:hover img { transform: scale(1.03); }
-
     .colecao-foto-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, #0B0B0C 0%, transparent 40%);
     }
-
-    /* Variação: fundo claro para Cotegipe em Arte */
-    .colecao.clara {
-      background: var(--marfim);
-    }
-
+    .colecao.clara { background: var(--marfim); }
     .colecao.clara .colecao-numero,
     .colecao.clara .colecao-titulo,
     .colecao.clara .colecao-historia { color: var(--preto); }
-
     .colecao.clara .colecao-titulo em { color: #8a6e20; }
     .colecao.clara .colecao-numero { color: #8a6e20; opacity: 0.7; }
     .colecao.clara .colecao-historia { opacity: 0.6; }
 
-    /* ── CTA COLEÇÃO ── */
-    .colecao-cta {
-      padding: 3rem 4rem 5rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
+    .colecao-cta { padding: 3rem 4rem 5rem; display: flex; gap: 1.5rem; align-items: center; }
     .colecao.clara .colecao-cta { background: var(--marfim); }
-
     .btn-ver-colecao {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -393,30 +377,25 @@
       display: inline-block;
     }
     .btn-ver-colecao:hover { background: #d4ad40; transform: translateY(-1px); }
-
     .btn-ver-colecao.escuro {
       color: var(--marfim);
       background: var(--preto);
       border: 0.5px solid rgba(198,160,58,0.4);
     }
     .btn-ver-colecao.escuro:hover { background: #1a1a1c; }
-
     .colecao-preco {
       font-family: var(--font-mono);
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       opacity: 0.5;
     }
-
     .colecao.clara .colecao-preco { color: var(--preto); }
 
-    /* ── ENCERRAMENTO ── */
     .encerramento {
       padding: 7rem 4rem;
       text-align: center;
       border-top: 0.5px solid rgba(198,160,58,0.15);
     }
-
     .encerramento-titulo {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 300;
@@ -424,9 +403,7 @@
       line-height: 1.1;
       margin-bottom: 1.5rem;
     }
-
     .encerramento-titulo em { color: var(--ouro); font-style: italic; }
-
     .encerramento-sub {
       font-family: var(--font-mono);
       font-size: 0.7rem;
@@ -435,14 +412,7 @@
       opacity: 0.35;
       margin-bottom: 3rem;
     }
-
-    .encerramento-acoes {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
+    .encerramento-acoes { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
     .btn-whats {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -454,7 +424,6 @@
       transition: all 0.3s;
     }
     .btn-whats:hover { background: #d4ad40; }
-
     .btn-insta {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -468,7 +437,6 @@
     }
     .btn-insta:hover { border-color: var(--ouro); color: var(--ouro); }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 0.5px solid rgba(198,160,58,0.15);
       padding: 2.5rem 4rem;
@@ -476,15 +444,17 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-cinzel);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       color: var(--ouro);
     }
-
+    .footer-logo .lamina { height: 22px; width: auto; }
     .footer-info {
       font-family: var(--font-mono);
       font-size: 0.65rem;
@@ -492,50 +462,49 @@
       color: var(--marfim);
       opacity: 0.3;
     }
-
     .footer-bar { width: 100%; height: 4px; display: flex; }
     .footer-bar span:nth-child(1) { flex: 2; background: var(--preto); border-bottom: 1px solid rgba(198,160,58,0.2); }
     .footer-bar span:nth-child(2) { flex: 1; background: var(--ouro); }
     .footer-bar span:nth-child(3) { flex: 1; background: var(--marfim); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-edition { display: none; }
+      .nav-logo { font-size: 1.1rem; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-content { padding: 3rem 1.5rem; min-height: 80vh; }
       .hero-foto { height: 60vw; }
       .hero-foto::after { background: linear-gradient(to bottom, #0B0B0C 0%, transparent 30%); }
+      .assinatura { padding: 4rem 1.5rem; }
       .sobre { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
-      .sobre-foto img { height: 300px; }
       .colecao-header { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.5rem 2rem; }
       .colecao-foto { height: 380px; }
       .colecao-cta { padding: 2rem 1.5rem 3rem; flex-wrap: wrap; }
       .encerramento { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
       .divider { padding: 0 1.5rem; }
+      .divider-lamina { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra tricolor topo -->
   <div class="topbar"><span></span><span></span><span></span></div>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">KOTX-N</a>
+    <a href="#" class="nav-logo">
+      <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+      <span>KOTX-N</span>
+    </a>
     <span class="nav-edition">CATÁLOGO · EDIÇÃO 2026</span>
     <a href="https://reserva.ink/kotxn" target="_blank" class="nav-cta">VER LOJA</a>
   </nav>
 
-  <!-- ── CAPA ── -->
   <section class="hero">
     <div class="hero-content">
       <p class="hero-edicao">COTEGIPE, BAHIA — BRASIL</p>
@@ -552,14 +521,19 @@
     </div>
   </section>
 
-  <!-- DIVIDER -->
-  <div class="divider">
-    <div class="divider-line"></div>
-    <span class="divider-text">A MARCA</span>
-    <div class="divider-line"></div>
-  </div>
+  <section class="assinatura">
+    <div class="assinatura-eyebrow">A marca</div>
+    <svg class="lamina" viewBox="-180 -140 360 240" aria-label="O Vértice — marca KOTX-N">
+      <line x1="-160" y1="0" x2="-30" y2="0" stroke="#C6A03A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="30" y1="0" x2="160" y2="0" stroke="#C6A03A" stroke-width="6" stroke-linecap="round"/>
+      <polygon points="0,-124 -24,-47 0,76 24,-47" fill="#C6A03A"/>
+    </svg>
+    <div class="assinatura-nome">O Vértice</div>
+    <div class="assinatura-tagline">território que vira força</div>
+    <p class="assinatura-texto">Cada coleção da KOTX-N é um capítulo de um mesmo território — o sertão do Oeste Baiano elevado a design premium. Noturno, Cotegipe em Arte: braços de uma só casa.</p>
+    <a href="marca/" class="assinatura-link">Ver manual da marca</a>
+  </section>
 
-  <!-- ── SOBRE COTEGIPE ── -->
   <section class="sobre">
     <div>
       <p class="sobre-numero">— ORIGEM</p>
@@ -574,14 +548,12 @@
     </div>
   </section>
 
-  <!-- DIVIDER -->
   <div class="divider" id="colecoes">
     <div class="divider-line"></div>
     <span class="divider-text">COLEÇÕES 2026</span>
     <div class="divider-line"></div>
   </div>
 
-  <!-- ── COLEÇÃO 01: NOTURNO ── -->
   <section class="colecao">
     <div class="colecao-header">
       <div>
@@ -608,14 +580,12 @@
     </div>
   </section>
 
-  <!-- DIVIDER -->
-  <div class="divider">
+  <div class="divider divider-lamina">
     <div class="divider-line"></div>
-    <span class="divider-text">EXCLUSIVO</span>
+    <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
     <div class="divider-line"></div>
   </div>
 
-  <!-- ── COLEÇÃO 02: COTEGIPE EM ARTE ── -->
   <section class="colecao clara">
     <div class="colecao-header">
       <div>
@@ -638,7 +608,6 @@
     </div>
   </section>
 
-  <!-- ── ENCERRAMENTO ── -->
   <section class="encerramento" id="contato">
     <h2 class="encerramento-titulo">Sua peça<br/>está <em>esperando.</em></h2>
     <p class="encerramento-sub">LOJA ONLINE · WHATSAPP · COTEGIPE, BA</p>
@@ -649,9 +618,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-logo">KOTX-N</span>
+    <span class="footer-logo">
+      <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+      <span>KOTX-N</span>
+    </span>
     <span class="footer-info">© 2026 KOTX-N · COTEGIPE, BA · 47900-172</span>
     <span class="footer-info">atendimento@kotxn.com</span>
   </footer>
