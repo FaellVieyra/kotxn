@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOTX-N · O Vértice — Manual de marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --gold:#C6A03A;
+    --gold-soft:#D8B85E;
+    --gold-deep:#B8902F;
+    --ivory:#F3F0EA;
+    --muted:#8C8A82;
+    --hair:rgba(198,160,58,0.22);
+    --hair-soft:rgba(198,160,58,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:20px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 28px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    font-family:"Cinzel",serif;
+    font-size:12px;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+    margin-bottom:26px;
+  }
+  h1,h2,h3{font-family:"Cinzel",serif;font-weight:500;color:var(--ivory);line-height:1.18;}
+  h2{font-size:clamp(28px,4.4vw,40px);letter-spacing:.02em;margin-bottom:30px;}
+  h3{font-size:18px;letter-spacing:.06em;color:var(--gold);margin-bottom:10px;}
+  p{color:#D9D6CE;max-width:64ch;}
+  p+p{margin-top:18px;}
+  em{font-style:italic;color:var(--ivory);}
+  strong{font-weight:600;color:var(--ivory);}
+
+  /* horizon divider — the brand's own line, breaking the page */
+  .horizon{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto;width:100%;opacity:.9;}
+  .horizon .seg{height:1px;background:var(--gold);flex:1;max-width:340px;}
+  .horizon .lance{width:18px;height:30px;margin:0 26px;color:var(--gold);}
+
+  .mark{display:block;}
+
+  /* hero */
+  .hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 0 96px;}
+  .hero .wordmark{font-family:"Cinzel",serif;font-weight:500;color:var(--gold);font-size:clamp(34px,8vw,72px);letter-spacing:.18em;margin-left:.18em;}
+  .hero .heromark{width:clamp(150px,34vw,240px);height:auto;margin:46px 0 40px;}
+  .hero .name{font-family:"Cinzel",serif;font-size:clamp(20px,3.4vw,28px);letter-spacing:.32em;text-transform:uppercase;color:var(--ivory);font-weight:400;}
+  .hero .tagline{font-style:italic;font-size:clamp(21px,3vw,27px);color:var(--ivory);margin-top:22px;}
+  .hero .sub{color:var(--gold);font-size:16px;letter-spacing:.06em;margin-top:8px;}
+  .hero .meta{margin-top:54px;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);}
+
+  /* layered lists */
+  .layers{margin-top:34px;border-top:1px solid var(--hair);}
+  .layers .row{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--hair-soft);align-items:baseline;}
+  .layers .k{font-family:"Cinzel",serif;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+  .layers .v{color:#CFCCC4;}
+
+  /* anatomy / versions grid */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:34px;}
+  .tile{border:1px solid var(--hair);background:#070708;border-radius:2px;padding:34px 26px 22px;text-align:center;}
+  .tile.light{background:var(--ivory);}
+  .tile .mk{height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .tile .mk svg{height:118px;width:auto;}
+  .tile .cap{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+  .tile .cap.dark{color:var(--gold-deep);}
+  .tile .note{font-size:15px;color:var(--muted);margin-top:4px;}
+  .tile.light .note{color:#7a6a3a;}
+
+  /* color */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:34px;}
+  .swatch{border:1px solid var(--hair);border-radius:2px;overflow:hidden;}
+  .swatch .chip{height:120px;}
+  .swatch .info{padding:16px 18px;}
+  .swatch .nm{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory);}
+  .swatch .hex{color:var(--gold);font-size:15px;letter-spacing:.08em;margin-top:4px;}
+  .swatch .use{color:var(--muted);font-size:14px;margin-top:8px;line-height:1.45;}
+
+  /* type specimens */
+  .spec{border:1px solid var(--hair);border-radius:2px;padding:28px 30px;margin-top:20px;}
+  .spec .role{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .spec .big-cinzel{font-family:"Cinzel",serif;font-size:clamp(28px,6vw,46px);letter-spacing:.14em;color:var(--ivory);}
+  .spec .glyphs{font-family:"Cinzel",serif;font-size:20px;letter-spacing:.16em;color:var(--gold);margin-top:14px;}
+  .spec .big-cormorant{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,5vw,38px);color:var(--ivory);font-style:italic;}
+  .spec .glyphs-2{font-family:"Cormorant Garamond",serif;font-size:21px;color:var(--gold);margin-top:12px;}
+
+  /* specs / rules list */
+  .rules{margin-top:30px;border-top:1px solid var(--hair);}
+  .rules li{list-style:none;display:grid;grid-template-columns:1fr auto;gap:20px;padding:15px 0;border-bottom:1px solid var(--hair-soft);align-items:baseline;}
+  .rules .lbl{color:#CFCCC4;}
+  .rules .val{font-family:"Cinzel",serif;font-size:15px;letter-spacing:.06em;color:var(--gold);white-space:nowrap;}
+
+  /* don'ts */
+  .donts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px 30px;margin-top:30px;}
+  .donts .item{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--hair-soft);}
+  .donts .x{font-family:"Cinzel",serif;color:var(--gold);font-size:16px;line-height:1.5;}
+  .donts .t{color:#CFCCC4;font-size:18px;line-height:1.5;}
+
+  .lead-in{font-style:italic;color:var(--gold);font-size:18px;letter-spacing:.04em;margin-bottom:8px;}
+
+  /* closing */
+  .closing{text-align:center;padding:110px 0 130px;}
+  .closing .wm{font-family:"Cinzel",serif;color:var(--gold);font-size:clamp(28px,6vw,48px);letter-spacing:.2em;margin-left:.2em;}
+  .closing .ln{font-style:italic;color:var(--ivory);font-size:20px;margin-top:20px;}
+  .closing .ft{margin-top:40px;font-family:"Cinzel",serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);line-height:2;}
+
+  .construction{margin-top:30px;border:1px solid var(--hair);border-radius:2px;padding:18px;background:#070708;}
+  .construction svg{width:100%;height:auto;display:block;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  @media (max-width:560px){
+    body{font-size:18px;}
+    section{padding:64px 0;}
+    .layers .row{grid-template-columns:1fr;gap:6px;}
+    .donts .t{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="v-facet" viewBox="-180 -140 360 240">
+    <line x1="-160" y1="0" x2="-30" y2="0" stroke="#C6A03A" stroke-width="6" stroke-linecap="round"/>
+    <line x1="30" y1="0" x2="160" y2="0" stroke="#C6A03A" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="0,-124 -24,-47 0,76" fill="#D4B255"/>
+    <polygon points="0,-124 24,-47 0,76" fill="#B8922E"/>
+    <polygon points="0,-124 -24,-47 0,76 24,-47" fill="none" stroke="#C6A03A" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="v-mono" viewBox="-180 -140 360 240">
+    <line x1="-160" y1="0" x2="-30" y2="0" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+    <line x1="30" y1="0" x2="160" y2="0" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/>
+  </symbol>
+  <symbol id="v-lance" viewBox="-30 -134 60 214">
+    <polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<!-- HERO -->
+<header class="hero wrap reveal">
+  <div class="eyebrow">Manual de marca</div>
+  <div class="wordmark">KOTX-N</div>
+  <svg class="heromark" viewBox="-180 -140 360 240" role="img" aria-label="Marca O Vértice"><use href="#v-facet"/></svg>
+  <div class="name">O Vértice</div>
+  <div class="tagline">território que vira força</div>
+  <div class="sub">o sertão do Oeste Baiano elevado a design premium</div>
+  <div class="meta">Identidade · Marca-mãe · Edição 01</div>
+</header>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 01 CONCEITO -->
+<section class="wrap reveal">
+  <div class="eyebrow">01 — Conceito</div>
+  <h2>O significado</h2>
+  <p>O Vértice é o conceito-mestre da KOTX-N <em>desenhado</em>, não ilustrado. A linha é o chão: o horizonte chapado do Oeste Baiano, a bacia do São Francisco, o cerrado plano que se estende sem fim. A lâmina é a força que nasce desse chão e o atravessa de baixo para cima.</p>
+  <p>Não é um cacto. Não é uma seta. Não é uma estrela. É geometria pura que carrega o sertão sem precisar representá-lo — e que, por nascer do próprio nome e do próprio território, não pertence a mais ninguém.</p>
+  <p class="lead-in">Território que vira força.</p>
+
+  <div class="layers">
+    <div class="row"><div class="k">Origem</div><div class="v">A marca nasce de um lugar exato — Cotegipe, Oeste Baiano — codificado de forma moderna e internacional.</div></div>
+    <div class="row"><div class="k">Direção</div><div class="v">A lâmina ascendente é mira, avanço, destino. Aponta sempre para cima.</div></div>
+    <div class="row"><div class="k">Resistência</div><div class="v">Permanência em terreno difícil — o que cresta o sol e o que insiste em subir.</div></div>
+    <div class="row"><div class="k">Brilho</div><div class="v">O ouro não é enfeite: é nobreza, destaque, identidade elevada.</div></div>
+    <div class="row"><div class="k">Território</div><div class="v">O regional convertido em prestígio. O específico vira raro, e o raro vira valor.</div></div>
+  </div>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 02 ANATOMIA -->
+<section class="wrap reveal">
+  <div class="eyebrow">02 — Anatomia</div>
+  <h2>As três partes</h2>
+  <p>Na assinatura principal, as três partes são indivisíveis — separá-las descaracteriza a identidade. A lâmina isolada só é permitida em microaplicações técnicas: favicon, etiqueta mínima ou qualquer uso abaixo do tamanho mínimo da marca completa.</p>
+  <div class="layers" style="margin-top:30px">
+    <div class="row"><div class="k">O horizonte</div><div class="v">A terra. A linha do Velho Chico, a régua do cerrado. É o chão de onde tudo parte.</div></div>
+    <div class="row"><div class="k">A lâmina</div><div class="v">O impulso. Uma gema cristalina de dois facetes — eco direto da coleção Impetus. Sobe e atravessa.</div></div>
+    <div class="row"><div class="k">O vão</div><div class="v">O respiro onde a força rompe a terra. Negativo, vazio, intocável — <strong>nunca preenchido</strong>.</div></div>
+  </div>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 03 CONSTRUÇÃO -->
+<section class="wrap reveal">
+  <div class="eyebrow">03 — Construção</div>
+  <h2>Proporção travada</h2>
+  <p>Toda a marca se constrói sobre dois eixos — a vertical de simetria e o horizonte — a partir de um único módulo <em>u</em>. As duas divisões da lâmina caem na seção áurea (φ): o ponto mais largo a <strong>38,2%</strong> e o cruzamento do horizonte a <strong>61,8%</strong>, contados do topo. Isso afasta o meio exato — que deixaria a marca genérica, parecida com bússola, cruz ou punhal — e faz a força já parecer rompida e subindo. Reproduzida com estas medidas, a marca sai idêntica em qualquer suporte. Esta é a regra; não há improviso.</p>
+
+  <div class="construction">
+    <svg viewBox="0 0 680 460" role="img" aria-label="Grade de construção com divisões áureas em 38,2 por cento e 61,8 por cento">
+      <line x1="340" y1="50" x2="340" y2="392" stroke="#C6A03A" stroke-width="0.6" stroke-dasharray="3 5" opacity="0.35"/>
+      <line x1="120" y1="255" x2="560" y2="255" stroke="#C6A03A" stroke-width="0.6" stroke-dasharray="3 5" opacity="0.18"/>
+
+      <line x1="100" y1="255" x2="295" y2="255" stroke="#C6A03A" stroke-width="3" stroke-linecap="round"/>
+      <line x1="385" y1="255" x2="580" y2="255" stroke="#C6A03A" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="340,70 304,185 340,370" fill="#D4B255"/>
+      <polygon points="340,70 376,185 340,370" fill="#B8922E"/>
+      <polygon points="340,70 304,185 340,370 376,185" fill="none" stroke="#C6A03A" stroke-width="1.2" stroke-linejoin="round"/>
+
+      <g font-family="Cormorant Garamond, serif" font-size="14.5">
+        <line x1="612" y1="70" x2="612" y2="370" stroke="#9a8f7a" stroke-width="0.6"/>
+        <line x1="608" y1="70" x2="616" y2="70" stroke="#9a8f7a" stroke-width="0.6"/>
+        <line x1="608" y1="185" x2="616" y2="185" stroke="#9a8f7a" stroke-width="0.6"/>
+        <line x1="608" y1="255" x2="616" y2="255" stroke="#9a8f7a" stroke-width="0.6"/>
+        <line x1="608" y1="370" x2="616" y2="370" stroke="#9a8f7a" stroke-width="0.6"/>
+        <text x="624" y="74" fill="#9a8f7a" font-size="12">topo</text>
+        <text x="624" y="190" fill="#C6A03A">38,2%</text>
+        <text x="624" y="259" fill="#C6A03A">61,8%</text>
+
+        <circle cx="304" cy="185" r="2.2" fill="#C6A03A"/>
+        <line x1="304" y1="185" x2="170" y2="150" stroke="#9a8f7a" stroke-width="0.5"/>
+        <text x="40" y="146" fill="#9a8f7a">largura máx. <tspan fill="#C6A03A">2,4u</tspan></text>
+
+        <circle cx="200" cy="255" r="2.2" fill="#C6A03A"/>
+        <line x1="200" y1="255" x2="160" y2="408" stroke="#9a8f7a" stroke-width="0.5"/>
+        <text x="40" y="420" fill="#9a8f7a">horizonte <tspan fill="#C6A03A">16u</tspan> · vão <tspan fill="#C6A03A">3u</tspan></text>
+
+        <text x="346" y="62" fill="#9a8f7a" font-size="12">eixo de simetria</text>
+      </g>
+    </svg>
+  </div>
+
+  <ul class="rules">
+    <li><span class="lbl">Altura da lâmina</span><span class="val">10u</span></li>
+    <li><span class="lbl">Ponto mais largo — do topo</span><span class="val">3,82u · 38,2%</span></li>
+    <li><span class="lbl">Largura máxima — no ponto mais largo</span><span class="val">2,4u</span></li>
+    <li><span class="lbl">Cruzamento do horizonte — do topo</span><span class="val">6,18u · 61,8%</span></li>
+    <li><span class="lbl">Comprimento do horizonte</span><span class="val">16u</span></li>
+    <li><span class="lbl">Vão central</span><span class="val">3u</span></li>
+    <li><span class="lbl">Espessura do horizonte — tela</span><span class="val">0,26u · ~16 px</span></li>
+    <li><span class="lbl">Espessura do horizonte — produção física</span><span class="val">0,3u · ~19 px</span></li>
+  </ul>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 04 VERSÕES -->
+<section class="wrap reveal">
+  <div class="eyebrow">04 — Versões oficiais</div>
+  <h2>Quatro arquivos</h2>
+  <p>Quatro versões cobrem todo uso. O facetado é a assinatura principal, para tela e web. O mono é obrigatório em bordado e estampa — uma cor só. Fora destas quatro, nenhuma outra é oficial.</p>
+  <div class="grid2">
+    <div class="tile">
+      <div class="mk"><svg viewBox="-180 -140 360 240" aria-label="Facetado ouro sobre preto"><use href="#v-facet"/></svg></div>
+      <div class="cap">Facetado</div>
+      <div class="note">Ouro sobre preto · uso principal, digital</div>
+    </div>
+    <div class="tile">
+      <div class="mk" style="color:var(--gold)"><svg viewBox="-180 -140 360 240" aria-label="Mono ouro sobre preto"><use href="#v-mono"/></svg></div>
+      <div class="cap">Mono · ouro</div>
+      <div class="note">Sobre preto · bordado e estampa</div>
+    </div>
+    <div class="tile">
+      <div class="mk" style="color:var(--ivory)"><svg viewBox="-180 -140 360 240" aria-label="Mono marfim sobre preto"><use href="#v-mono"/></svg></div>
+      <div class="cap">Mono · marfim</div>
+      <div class="note">Sobre preto · alternativa sóbria</div>
+    </div>
+    <div class="tile light">
+      <div class="mk" style="color:var(--ink)"><svg viewBox="-180 -140 360 240" aria-label="Mono preto sobre marfim"><use href="#v-mono"/></svg></div>
+      <div class="cap dark">Mono · negativo</div>
+      <div class="note">Preto sobre marfim · fundos claros</div>
+    </div>
+  </div>
+  <ul class="rules" style="margin-top:30px">
+    <li><span class="lbl">Bordado · até 3 cm</span><span class="val">lâmina sólida</span></li>
+    <li><span class="lbl">Bordado · acima de 4 cm</span><span class="val">linha central negativa</span></li>
+    <li><span class="lbl">Digital · qualquer tamanho</span><span class="val">facetada · dois tons</span></li>
+  </ul>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 05 COR -->
+<section class="wrap reveal">
+  <div class="eyebrow">05 — Cor</div>
+  <h2>Três valores</h2>
+  <p>A paleta é fechada. Preto e ouro sustentam a marca; o marfim respira. Os dois tons de ouro do facete são derivados — existem só dentro da lâmina, nunca isolados — e ficam <em>próximos de propósito</em>, para a lâmina ler como uma gema única, não como duas metades coladas.</p>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#0B0B0C;border-bottom:1px solid var(--hair)"></div><div class="info"><div class="nm">Preto Editorial</div><div class="hex">#0B0B0C</div><div class="use">Fundo, base, silêncio.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#C6A03A"></div><div class="info"><div class="nm">Ouro Sofisticado</div><div class="hex">#C6A03A</div><div class="use">A marca, o destaque, a nobreza.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F3F0EA"></div><div class="info"><div class="nm">Marfim Premium</div><div class="hex">#F3F0EA</div><div class="use">Texto, respiro, fundos claros.</div></div></div>
+  </div>
+  <ul class="rules" style="margin-top:24px">
+    <li><span class="lbl">Faceta clara — interno da lâmina</span><span class="val">#D4B255</span></li>
+    <li><span class="lbl">Faceta profunda — interno da lâmina</span><span class="val">#B8922E</span></li>
+  </ul>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 06 TIPOGRAFIA -->
+<section class="wrap reveal">
+  <div class="eyebrow">06 — Tipografia</div>
+  <h2>Duas vozes</h2>
+  <p>Cinzel grava: títulos, logotipo, qualquer palavra que precise de peso e cerimônia. Cormorant Garamond conversa: corpo de texto, legendas, frases que respiram. Nunca mais de duas famílias.</p>
+  <div class="spec">
+    <div class="role">Display · títulos e logotipo</div>
+    <div class="big-cinzel">CINZEL</div>
+    <div class="glyphs">A B C D E F G · K O T X N · 0 1 2 3</div>
+  </div>
+  <div class="spec">
+    <div class="role">Corpo · texto e editorial</div>
+    <div class="big-cormorant">Cormorant Garamond</div>
+    <div class="glyphs-2">o sertão elevado a design premium · abcdefg · 0123</div>
+  </div>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 07 PROTEÇÃO -->
+<section class="wrap reveal">
+  <div class="eyebrow">07 — Proteção e escala</div>
+  <h2>Respiro e limite</h2>
+  <p>A marca precisa de ar. Mantenha ao redor dela uma área livre de qualquer elemento — texto, borda, outra imagem. E nunca aplique abaixo do tamanho mínimo: a lâmina afina e o horizonte some.</p>
+  <ul class="rules">
+    <li><span class="lbl">Área de proteção — em todos os lados</span><span class="val">2u</span></li>
+    <li><span class="lbl">Tamanho mínimo · bordado (altura)</span><span class="val">25 mm</span></li>
+    <li><span class="lbl">Tamanho mínimo · estampa (altura)</span><span class="val">30 mm</span></li>
+    <li><span class="lbl">Tamanho mínimo · digital (largura)</span><span class="val">96 px</span></li>
+    <li><span class="lbl">Abaixo do mínimo</span><span class="val">só a lâmina</span></li>
+  </ul>
+  <p style="margin-top:22px;color:var(--muted);font-size:17px">Para ícone, favicon ou aplicações minúsculas, use a <em>lâmina isolada</em>, sem o horizonte. É a única redução permitida da marca.</p>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 08 USOS PROIBIDOS -->
+<section class="wrap reveal">
+  <div class="eyebrow">08 — Usos proibidos</div>
+  <h2>O que nunca se faz</h2>
+  <p>Estas regras protegem a marca. Uma única delas quebrada já a faz parecer amadora — e amadorismo é o oposto de tudo que a KOTX-N vende.</p>
+  <div class="donts">
+    <div class="item"><div class="x">✕</div><div class="t">Esticar, comprimir ou distorcer a proporção.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Recolorir fora da paleta oficial.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Adicionar sombra, brilho, gradiente ou contorno.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Girar ou inclinar a marca. A lâmina é sempre vertical.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Preencher o vão do horizonte.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Separar a lâmina do horizonte. Andam juntos.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Aplicar sobre fundo concorrido sem a placa preta.</div></div>
+    <div class="item"><div class="x">✕</div><div class="t">Refazer à mão. Use sempre o arquivo vetorial.</div></div>
+  </div>
+</section>
+
+<div class="wrap"><div class="horizon"><span class="seg"></span><svg class="lance" viewBox="-30 -130 60 220" aria-hidden="true" style="color:var(--gold)"><use href="#v-lance"/></svg><span class="seg"></span></div></div>
+
+<!-- 09 APLICAÇÃO -->
+<section class="wrap reveal">
+  <div class="eyebrow">09 — Aplicação</div>
+  <h2>No produto</h2>
+  <p>A marca foi desenhada para resistir pequena e funcionar aplicada. Em cada suporte, o silêncio ao redor é parte da peça.</p>
+  <div class="layers" style="margin-top:30px">
+    <div class="row"><div class="k">Boné</div><div class="v">Frente, centralizado. Mono ouro bordado. Altura mínima 25 mm.</div></div>
+    <div class="row"><div class="k">Camiseta</div><div class="v">Peito ou centro. A marca ocupa 70–75% da largura da área de print — nunca encostando nas bordas.</div></div>
+    <div class="row"><div class="k">Etiqueta</div><div class="v">Lâmina isolada ou marca completa em ouro sobre preto. Cerimônia em miniatura.</div></div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<footer class="closing wrap reveal">
+  <svg style="width:64px;height:auto;color:var(--gold);margin-bottom:30px" viewBox="-180 -140 360 240" aria-hidden="true"><use href="#v-mono"/></svg>
+  <div class="wm">KOTX-N</div>
+  <div class="ln">território que vira força</div>
+  <div class="ft">Manual de marca · O Vértice · Edição 01<br>atendimento@kotxn.com · @kotx.n · Cotegipe — Bahia</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
