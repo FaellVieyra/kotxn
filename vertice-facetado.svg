@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <title>KOTX-N — O Vértice · facetado (institucional)</title>
+  <rect width="1000" height="1000" fill="#0B0B0C"/>
+  <line x1="12" y1="573" x2="407" y2="573" stroke="#C6A03A" stroke-width="16" stroke-linecap="round"/>
+  <line x1="593" y1="573" x2="988" y2="573" stroke="#C6A03A" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="500,190 426,427 500,810" fill="#D4B255"/>
+  <polygon points="500,190 574,427 500,810" fill="#B8922E"/>
+  <polygon points="500,190 426,427 500,810 574,427" fill="none" stroke="#C6A03A" stroke-width="4" stroke-linejoin="round"/>
+</svg>
