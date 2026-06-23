@@ -461,7 +461,9 @@
       letter-spacing: 0.2em;
       color: var(--marfim);
       opacity: 0.3;
+      transition: color 0.3s, opacity 0.3s;
     }
+    a.footer-info:hover { color: var(--ouro); opacity: 1; }
     .footer-bar { width: 100%; height: 4px; display: flex; }
     .footer-bar span:nth-child(1) { flex: 2; background: var(--preto); border-bottom: 1px solid rgba(198,160,58,0.2); }
     .footer-bar span:nth-child(2) { flex: 1; background: var(--ouro); }
@@ -636,7 +638,7 @@
       <span>KOTX-N</span>
     </span>
     <span class="footer-info">© 2026 KOTX-N · COTEGIPE, BA · 47900-172</span>
-    <span class="footer-info">atendimento@kotxn.com</span>
+    <a href="mailto:atendimento@kotxn.com" class="footer-info" style="text-decoration: none; transition: color 0.3s;">atendimento@kotxn.com</a>
   </footer>
 
   <div class="footer-bar"><span></span><span></span><span></span></div>
