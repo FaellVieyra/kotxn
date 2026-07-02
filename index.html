@@ -363,8 +363,22 @@
     .colecao.clara .colecao-numero { color: #8a6e20; opacity: 0.7; }
     .colecao.clara .colecao-historia { opacity: 0.6; }
 
+    .colecao.dourada { background: var(--ouro); }
+    .colecao.dourada .colecao-numero,
+    .colecao.dourada .colecao-titulo,
+    .colecao.dourada .colecao-historia { color: var(--preto); }
+    .colecao.dourada .colecao-titulo em { color: var(--marfim); }
+    .colecao.dourada .colecao-numero { opacity: 0.55; }
+    .colecao.dourada .colecao-historia { opacity: 0.72; }
+    .colecao.dourada .colecao-stripe span:nth-child(1) { border: none; }
+    .colecao.dourada .colecao-stripe span:nth-child(2) { border: 0.5px solid rgba(11,11,12,0.25); }
+    .colecao.dourada .colecao-foto-overlay {
+      background: linear-gradient(to top, rgba(198,160,58,0.8) 0%, transparent 45%);
+    }
+
     .colecao-cta { padding: 3rem 4rem 5rem; display: flex; gap: 1.5rem; align-items: center; }
     .colecao.clara .colecao-cta { background: var(--marfim); }
+    .colecao.dourada .colecao-cta { background: var(--ouro); }
     .btn-ver-colecao {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -390,6 +404,7 @@
       opacity: 0.5;
     }
     .colecao.clara .colecao-preco { color: var(--preto); }
+    .colecao.dourada .colecao-preco { color: var(--preto); opacity: 0.6; }
 
     .encerramento {
       padding: 7rem 4rem;
@@ -587,6 +602,36 @@
     </div>
   </section>
 
+  <div class="divider divider-lamina">
+    <div class="divider-line"></div>
+    <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ── COLEÇÃO 03: TERRITÓRIO ── -->
+  <section class="colecao dourada">
+    <div class="colecao-header">
+      <div>
+        <p class="colecao-numero">— COLEÇÃO 03</p>
+        <h2 class="colecao-titulo">Terri<em>tório</em></h2>
+      </div>
+      <div>
+        <div class="colecao-stripe"><span></span><span></span><span></span></div>
+        <p class="colecao-historia">
+          A fauna e a flora do sertão em heráldica contemporânea. Corrupião, carcará, lobo-guará, ipê-amarelo, mandacaru e buriti — cada espécie desenhada em linha geométrica de ouro, com o nome científico gravado na peça como quem assina um documento. Edição exclusiva em preto.
+        </p>
+      </div>
+    </div>
+    <div class="colecao-foto">
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Capa%20Territ%C3%B3rio%202.png" alt="Coleção Território KOTX-N"/>
+      <div class="colecao-foto-overlay"></div>
+    </div>
+    <div class="colecao-cta">
+      <a href="https://reserva.ink/kotxn/products?search_filter=territorio" target="_blank" class="btn-ver-colecao escuro">VER COLEÇÃO TERRITÓRIO</a>
+      <span class="colecao-preco">A partir de R$99,90 · Frete incluso</span>
+    </div>
+  </section>
+
   <!-- ═══ INSTITUCIONAL (depois da vitrine) ═══ -->
   <div class="divider">
     <div class="divider-line"></div>
@@ -606,7 +651,7 @@
     </svg>
     <div class="assinatura-nome">O Vértice</div>
     <div class="assinatura-tagline">território que vira força</div>
-    <p class="assinatura-texto">Cada coleção da KOTX-N é um capítulo de um mesmo território — o sertão do Oeste Baiano elevado a design premium. Noturno e Cotegipe em Arte são braços de uma só casa.</p>
+    <p class="assinatura-texto">Cada coleção da KOTX-N é um capítulo de um mesmo território — o sertão do Oeste Baiano elevado a design premium. Território, Noturno e Cotegipe em Arte são braços de uma só casa.</p>
     <a href="marca/" class="assinatura-link">Ver manual da marca</a>
   </section>
 
