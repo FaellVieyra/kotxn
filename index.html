@@ -416,6 +416,102 @@
     .colecao.clara .colecao-preco { color: var(--preto); }
     .colecao.dourada .colecao-preco { color: var(--preto); opacity: 0.6; }
 
+    /* ── Mosaico Relicário ── */
+    .mosaico {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 0 4rem;
+    }
+    .mosaico-capa {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      background: #000;
+      border: 0.5px solid rgba(198,160,58,0.15);
+      transition: border-color 0.3s;
+    }
+    .mosaico-capa:hover { border-color: var(--ouro); }
+    .mosaico-capa img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      transition: transform 0.8s ease;
+      opacity: 0.92;
+    }
+    .mosaico-capa:hover img { transform: scale(1.03); }
+    .mosaico-capa-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,11,12,0.88) 0%, transparent 45%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1.8rem;
+      gap: 0.6rem;
+    }
+    .mosaico-capa-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--ouro);
+    }
+    .mosaico-capa-cta {
+      font-family: var(--font-cinzel);
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      color: var(--marfim);
+      transition: color 0.3s;
+    }
+    .mosaico-capa:hover .mosaico-capa-cta { color: var(--ouro); }
+    .mosaico-grade {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .mosaico-tile {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      aspect-ratio: 1 / 1;
+      border: 0.5px solid rgba(198,160,58,0.15);
+      transition: border-color 0.3s;
+    }
+    .mosaico-tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .mosaico-tile:hover { border-color: var(--ouro); }
+    .mosaico-tile:hover img { transform: scale(1.06); }
+    .mosaico-tile-nome {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 0.9rem 0.5rem 0.7rem;
+      text-align: center;
+      font-family: var(--font-cinzel);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--marfim);
+      background: linear-gradient(to top, rgba(11,11,12,0.92), transparent);
+      transition: color 0.3s;
+    }
+    .mosaico-tile:hover .mosaico-tile-nome { color: var(--ouro); }
+
+    @media (max-width: 768px) {
+      .mosaico { grid-template-columns: 1fr; padding: 0 1rem; }
+      .mosaico-capa { aspect-ratio: 4 / 3; }
+      .mosaico-grade { grid-template-columns: repeat(2, 1fr); }
+      .mosaico-tile-nome { font-size: 0.6rem; letter-spacing: 0.2em; padding: 0.7rem 0.4rem 0.55rem; }
+    }
+
     .encerramento {
       padding: 7rem 4rem;
       text-align: center;
@@ -556,6 +652,69 @@
     <div class="divider-line"></div>
   </div>
 
+  <!-- ── COLEÇÃO 05: RELICÁRIO (novo drop — mosaico) ── -->
+  <section class="colecao" id="relicario">
+    <div class="colecao-header">
+      <div>
+        <p class="colecao-numero">— COLEÇÃO 05 · NOVO DROP</p>
+        <h2 class="colecao-titulo">Relic<em>ário</em></h2>
+      </div>
+      <div>
+        <div class="colecao-stripe"><span></span><span></span><span></span></div>
+        <p class="colecao-historia">
+          O bruto feito ouro. Fauna e flora do sertão lapidadas em mosaico de ouro cristalino, dissolvendo-se em cacos de luz sobre o preto absoluto. Seis relíquias catalogadas — onça, zebu, carcará, corrupião, mandacaru e juazeiro. Exclusiva em malha preta.
+        </p>
+      </div>
+    </div>
+
+    <div class="mosaico">
+      <a class="mosaico-capa" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-capa-casal.jpg" alt="Coleção Relicário KOTX-N — casal vestindo as relíquias Onça e Mandacaru na última luz do sertão"/>
+        <div class="mosaico-capa-overlay">
+          <span class="mosaico-capa-eyebrow">SEIS RELÍQUIAS · MALHA PRETA</span>
+          <span class="mosaico-capa-cta">VER A COLEÇÃO COMPLETA →</span>
+        </div>
+      </a>
+      <div class="mosaico-grade">
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-onca" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-onca.jpg" alt="Camiseta Relicário — Onça | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Onça</span>
+        </a>
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-zebu" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-zebu.jpg" alt="Camiseta Relicário — Zebu | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Zebu</span>
+        </a>
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-carcara" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-carcara.jpg" alt="Camiseta Relicário — Carcará | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Carcará</span>
+        </a>
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-corrupiao" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-corrupiao.jpg" alt="Camiseta Relicário — Corrupião | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Corrupião</span>
+        </a>
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-mandacaru" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-mandacaru.jpg" alt="Camiseta Relicário — Mandacaru | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Mandacaru</span>
+        </a>
+        <a class="mosaico-tile" href="https://reserva.ink/kotxn/product/relicario-juazeiro" target="_blank" rel="noopener">
+          <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-juazeiro.jpg" alt="Camiseta Relicário — Juazeiro | mosaico de ouro cristalino sobre preto"/>
+          <span class="mosaico-tile-nome">Juazeiro</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="colecao-cta">
+      <a href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" class="btn-ver-colecao">VER COLEÇÃO RELICÁRIO</a>
+      <span class="colecao-preco">A partir de R$99,90 · Frete incluso</span>
+    </div>
+  </section>
+
+  <div class="divider divider-lamina">
+    <div class="divider-line"></div>
+    <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+    <div class="divider-line"></div>
+  </div>
+
   <!-- ── COLEÇÃO 01: COTEGIPE EM ARTE (a mais forte, vem primeiro) ── -->
   <section class="colecao clara">
     <div class="colecao-header">
@@ -691,7 +850,7 @@
     </svg>
     <div class="assinatura-nome">O Vértice</div>
     <div class="assinatura-tagline">território que vira força</div>
-    <p class="assinatura-texto">Cada coleção da KOTX-N é um capítulo de um mesmo território — o sertão do Oeste Baiano elevado a design premium. Cotegipe em Arte, Noturno, Território e Origem são braços de uma só casa.</p>
+    <p class="assinatura-texto">Cada coleção da KOTX-N é um capítulo de um mesmo território — o sertão do Oeste Baiano elevado a design premium. Cotegipe em Arte, Noturno, Território, Origem e Relicário são braços de uma só casa.</p>
     <a href="marca/" class="assinatura-link">Ver manual da marca</a>
   </section>
 
