@@ -126,23 +126,16 @@
   .acoes{margin-top:3rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
   .preco{font-family:var(--dado);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--marfim-sub)}
 
-  /* ─── ACERVO ─── */
-  .acervo{padding:2rem 5vw 5.5rem;display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:1.6rem}
-  .acervo-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);background:var(--carvao);border:1px solid var(--ouro-fosco);overflow:hidden;color:var(--marfim);transition:border-color .35s}
-  .acervo-card:hover{border-color:var(--ouro)}
-  .acervo-foto{position:relative;overflow:hidden;min-height:360px;height:100%}
-  .acervo-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform 1s cubic-bezier(.16,.84,.44,1)}
-  .acervo-card:hover .acervo-foto img{transform:scale(1.03)}
-  .acervo-card--origem .acervo-foto img{object-position:42% center}
-  .acervo-corpo{display:flex;flex-direction:column;padding:2.2rem 2.2rem 1.8rem}
-  .acervo-titulo{font-family:var(--display);font-weight:400;font-size:1.85rem;line-height:1.1;color:var(--marfim);margin-bottom:1rem}
-  .acervo-titulo em{font-family:var(--corpo);font-style:italic;font-weight:300;color:var(--ouro)}
-  .acervo-texto{font-size:1rem;line-height:1.75;color:var(--marfim-sub);font-weight:300}
-  .acervo-texto i{font-style:italic;color:var(--ouro)}
-  .acervo-rodape{margin-top:auto;padding-top:1.6rem}
-  .acervo-link{display:block;font-family:var(--dado);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);transition:color .3s}
-  .acervo-card:hover .acervo-link{color:var(--ouro-claro)}
-  .acervo-preco{display:block;font-family:var(--dado);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--marfim-sub);margin-top:.6rem}
+  /* ─── FAIXA (coleções de capa) ─── */
+  .faixa{padding:2rem 5vw 5rem}
+  .faixa-foto{position:relative;display:block;overflow:hidden;border:1px solid var(--ouro-fosco);height:clamp(420px,58vh,660px);transition:border-color .35s}
+  .faixa-foto:hover{border-color:var(--ouro)}
+  .faixa-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,.84,.44,1)}
+  .faixa-foto:hover img{transform:scale(1.02)}
+  #origem .faixa-foto img{object-position:center 12%}
+  #territorio .faixa-foto img{object-position:center 3%}
+  #cotegipe-em-arte .faixa-foto img{object-position:center 1%}
+  #noturno .faixa-foto img{object-position:center 2%}
 
   /* ─── A MARCA ─── */
   .marca{padding:6rem 5vw;text-align:center;border-top:1px solid var(--ouro-fosco);border-bottom:1px solid var(--ouro-fosco)}
@@ -183,11 +176,7 @@
     .cabecalho{grid-template-columns:1fr;gap:1.8rem}
     .mosaico{grid-template-columns:1fr}
     .capa img{min-height:380px}
-    .acervo{grid-template-columns:1fr;grid-auto-rows:auto}
-    .acervo-card{grid-template-columns:1fr}
-    .acervo-foto{height:clamp(260px,48vw,380px);min-height:0}
-    .acervo-foto img{object-position:center 18%}
-    .acervo-card--origem .acervo-foto img{object-position:center 42%}
+    .faixa-foto{height:clamp(280px,54vw,420px)}
     .casa{grid-template-columns:1fr;gap:2.5rem}
   }
   @media (max-width:560px){
@@ -235,64 +224,25 @@
   <div class="divisor-linha"></div>
 </div>
 
-<!-- ── 07 · SERTÃO IMPERIAL ── -->
-<section class="colecao" id="sertao-imperial">
+<section class="colecao faixa" id="origem">
   <div class="cabecalho">
     <div>
-      <p class="carimbo">Coleção 07 <span>·</span> Novo drop <span>·</span> Est. MMXXIV</p>
-      <h2 class="titulo">Sertão<br/>Imp<em>erial</em></h2>
+      <p class="carimbo">Coleção 04 <span>·</span> Gentílico</p>
+      <h2 class="titulo">Ori<em>gem</em></h2>
     </div>
     <div>
       <div class="fio"></div>
-      <p class="historia">Brasil desde sempre. Cinco selos gravados a traço de ouro elevam o sertão à condição de império — o cavaleiro que não deve nada ao tempo, o Rio Grande em curvas de nível, a carranca guardiã do Velho Chico, o sol que forja os fortes e o mandacaru coroado da caatinga. Cada peça leva o carimbo postal Sertão Imperial · Est. MMXXIV.</p>
-      <p class="malha">Exclusiva em malha preta</p>
+      <p class="historia">Antes da marca, o lugar. Cotegipano Raiz e Cotegipana da Gema — o gentílico de quem nasceu entre o rio e o cerrado, tipografado no peito como quem carrega documento. Coordenadas gravadas, orgulho declarado. Para quem vive aqui e para quem leva Cotegipe onde estiver.</p>
+      <p class="malha">Em preto, azul marinho e branco</p>
     </div>
   </div>
 
-  <div class="mosaico">
-    <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-capa.jpg" alt="Coleção Sertão Imperial KOTX-N — camiseta O Cavaleiro na luz dourada do sertão baiano"/>
-      <span class="capa-veu">
-        <span class="capa-eyebrow">Cinco selos · Brasil desde sempre</span>
-        <span class="capa-cta">Ver a coleção completa →</span>
-      </span>
-    </a>
-    <div class="grade">
-      <a class="tile" href="https://reserva.ink/kotxn/product/o-cavaleiro" target="_blank" rel="noopener">
-        <span class="tile-num">I</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-cavaleiro.jpg" alt="Camiseta O Cavaleiro — Sertão Imperial | gravura a ouro do cavaleiro atravessando a caatinga"/>
-        <span class="tile-nome">O Cavaleiro</span>
-      </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/rio-grande-2bf21358-7b2b-4bca-bb6e-3b5923c9cff3" target="_blank" rel="noopener">
-        <span class="tile-num">II</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-rio-grande.jpg" alt="Camiseta Rio Grande — Sertão Imperial | topografia do rio em ouro com coordenadas do Oeste Baiano"/>
-        <span class="tile-nome">Rio Grande</span>
-      </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/carranca-190e1af3-e6ea-48a6-b337-fad873b12fa4" target="_blank" rel="noopener">
-        <span class="tile-num">III</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-carranca.jpg" alt="Camiseta Carranca — Sertão Imperial | a guardiã do Velho Chico emoldurada a ouro"/>
-        <span class="tile-nome">Carranca</span>
-      </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/o-sol-352a5128-7bfb-468a-b72d-47a2ff5a69dc" target="_blank" rel="noopener">
-        <span class="tile-num">IV</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-sol.jpg" alt="Camiseta O Sol — Sertão Imperial | onde o sol forja os fortes, selo em ouro sobre preto"/>
-        <span class="tile-nome">O Sol</span>
-      </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/mandacaru-imperial" target="_blank" rel="noopener">
-        <span class="tile-num">V</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-mandacaru.jpg" alt="Camiseta Mandacaru Imperial — Sertão Imperial | o brasão coroado da caatinga"/>
-        <span class="tile-nome">Mandacaru Imperial</span>
-      </a>
-      <a class="tile" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
-        <span class="tile-num">✦</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-selo.jpg" alt="Sertão Imperial — onde o sol forja os fortes · Brasil desde sempre · Est. MMXXIV"/>
-        <span class="tile-nome">A Coleção</span>
-      </a>
-    </div>
-  </div>
+  <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=origem-kotxn" target="_blank" rel="noopener">
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa-origem.jpg" alt="Coleção Origem KOTX-N — Cotegipano Raiz e Cotegipana da Gema"/>
+  </a>
 
   <div class="acoes">
-    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">Ver coleção Sertão Imperial</a>
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=origem-kotxn" target="_blank" rel="noopener">Ver coleção Origem</a>
     <span class="preco">A partir de R$99,90 · Frete incluso</span>
   </div>
 </section>
@@ -303,7 +253,160 @@
   <div class="divisor-linha"></div>
 </div>
 
-<!-- ── 06 · PIGMENTO ── -->
+<section class="colecao faixa" id="territorio">
+  <div class="cabecalho">
+    <div>
+      <p class="carimbo">Coleção 03 <span>·</span> Heráldica</p>
+      <h2 class="titulo">Terri<em>tório</em></h2>
+    </div>
+    <div>
+      <div class="fio"></div>
+      <p class="historia">A fauna e a flora do sertão em heráldica contemporânea. Corrupião, carcará, lobo-guará, ipê-amarelo, mandacaru e buriti — cada espécie desenhada em linha geométrica de ouro, com o nome científico gravado na peça como quem assina um documento.</p>
+      <p class="malha">Edição exclusiva em preto</p>
+    </div>
+  </div>
+
+  <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=territorio" target="_blank" rel="noopener">
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Capa%20Territ%C3%B3rio%202.png" alt="Coleção Território KOTX-N — fauna e flora do sertão em linha geométrica de ouro"/>
+  </a>
+
+  <div class="acoes">
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=territorio" target="_blank" rel="noopener">Ver coleção Território</a>
+    <span class="preco">A partir de R$99,90 · Frete incluso</span>
+  </div>
+</section>
+
+<div class="divisor">
+  <div class="divisor-linha"></div>
+  <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+  <div class="divisor-linha"></div>
+</div>
+
+<section class="colecao faixa" id="cotegipe-em-arte">
+  <div class="cabecalho">
+    <div>
+      <p class="carimbo">Coleção 01 <span>·</span> A fundadora</p>
+      <h2 class="titulo">Cotegipe em <em>Arte</em></h2>
+    </div>
+    <div>
+      <div class="fio"></div>
+      <p class="historia">Uma homenagem em traços. Cada peça carrega uma ilustração exclusiva que transforma a memória de Cotegipe em arte vestível — suas igrejas, casas coloniais, rios e raízes desenhados em line art delicado. Para quem tem orgulho de onde vem.</p>
+      <p class="malha">Sobre algodão branco</p>
+    </div>
+  </div>
+
+  <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=art" target="_blank" rel="noopener">
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/CotegipeEmArte.png" alt="Coleção Cotegipe em Arte KOTX-N — arquitetura histórica da cidade em line art"/>
+  </a>
+
+  <div class="acoes">
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=art" target="_blank" rel="noopener">Ver Cotegipe em Arte</a>
+    <span class="preco">A partir de R$99,90 · Frete incluso</span>
+  </div>
+</section>
+
+<div class="divisor">
+  <div class="divisor-linha"></div>
+  <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+  <div class="divisor-linha"></div>
+</div>
+
+<section class="colecao faixa" id="noturno">
+  <div class="cabecalho">
+    <div>
+      <p class="carimbo">Coleção 02 <span>·</span> Constelações</p>
+      <h2 class="titulo">Notur<em>no</em></h2>
+    </div>
+    <div>
+      <div class="fio"></div>
+      <p class="historia">Quando a cidade dorme, o céu sertanejo desperta. Nasce do olhar para cima — para o Cruzeiro do Sul, para a Lua do Cerrado, para o Caçador que atravessa a noite. Cada estampa é uma constelação do sertão do Oeste Baiano impressa em algodão premium. <i>Sub caelo sertaneo, omnia conecta.</i></p>
+      <p class="malha">Sob o céu sertanejo, tudo se conecta</p>
+    </div>
+  </div>
+
+  <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=noturno" target="_blank" rel="noopener">
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa%20noturno.png" alt="Coleção Noturno KOTX-N — constelações do céu sertanejo do Oeste Baiano"/>
+  </a>
+
+  <div class="acoes">
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=noturno" target="_blank" rel="noopener">Ver coleção Noturno</a>
+    <span class="preco">A partir de R$99,90 · Frete incluso</span>
+  </div>
+</section>
+
+<div class="divisor" id="selos">
+  <div class="divisor-linha"></div>
+  <span class="divisor-texto">Os Selos</span>
+  <div class="divisor-linha"></div>
+</div>
+
+<section class="colecao" id="relicario">
+  <div class="cabecalho">
+    <div>
+      <p class="carimbo">Coleção 05 <span>·</span> A última luz</p>
+      <h2 class="titulo">Relic<em>ário</em></h2>
+    </div>
+    <div>
+      <div class="fio"></div>
+      <p class="historia">O bruto feito ouro. Fauna e flora do sertão lapidadas em mosaico de ouro cristalino, dissolvendo-se em cacos de luz sobre o preto absoluto. Seis relíquias catalogadas — onça, zebu, carcará, corrupião, mandacaru e juazeiro.</p>
+      <p class="malha">Exclusiva em malha preta</p>
+    </div>
+  </div>
+
+  <div class="mosaico">
+    <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-capa-casal.jpg" alt="Coleção Relicário KOTX-N — casal vestindo as relíquias Onça e Mandacaru na última luz do sertão"/>
+      <span class="capa-veu">
+        <span class="capa-eyebrow">Seis relíquias · Malha preta</span>
+        <span class="capa-cta">Ver a coleção completa →</span>
+      </span>
+    </a>
+    <div class="grade">
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-onca" target="_blank" rel="noopener">
+        <span class="tile-num">I</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-onca.jpg" alt="Camiseta Relicário — Onça | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Onça</span>
+      </a>
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-zebu" target="_blank" rel="noopener">
+        <span class="tile-num">II</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-zebu.jpg" alt="Camiseta Relicário — Zebu | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Zebu</span>
+      </a>
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-carcara" target="_blank" rel="noopener">
+        <span class="tile-num">III</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-carcara.jpg" alt="Camiseta Relicário — Carcará | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Carcará</span>
+      </a>
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-corrupiao" target="_blank" rel="noopener">
+        <span class="tile-num">IV</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-corrupiao.jpg" alt="Camiseta Relicário — Corrupião | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Corrupião</span>
+      </a>
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-mandacaru" target="_blank" rel="noopener">
+        <span class="tile-num">V</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-mandacaru.jpg" alt="Camiseta Relicário — Mandacaru | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Mandacaru</span>
+      </a>
+      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-juazeiro" target="_blank" rel="noopener">
+        <span class="tile-num">VI</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-juazeiro.jpg" alt="Camiseta Relicário — Juazeiro | mosaico de ouro cristalino sobre preto"/>
+        <span class="tile-nome">Juazeiro</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="acoes">
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">Ver coleção Relicário</a>
+    <span class="preco">A partir de R$99,90 · Frete incluso</span>
+  </div>
+</section>
+
+<div class="divisor">
+  <div class="divisor-linha"></div>
+  <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
+  <div class="divisor-linha"></div>
+</div>
+
 <section class="colecao" id="pigmento">
   <div class="cabecalho">
     <div>
@@ -371,137 +474,65 @@
   <div class="divisor-linha"></div>
 </div>
 
-<!-- ── 05 · RELICÁRIO ── -->
-<section class="colecao" id="relicario">
+<section class="colecao" id="sertao-imperial">
   <div class="cabecalho">
     <div>
-      <p class="carimbo">Coleção 05 <span>·</span> A última luz</p>
-      <h2 class="titulo">Relic<em>ário</em></h2>
+      <p class="carimbo">Coleção 07 <span>·</span> Novo drop <span>·</span> Est. MMXXIV</p>
+      <h2 class="titulo">Sertão<br/>Imp<em>erial</em></h2>
     </div>
     <div>
       <div class="fio"></div>
-      <p class="historia">O bruto feito ouro. Fauna e flora do sertão lapidadas em mosaico de ouro cristalino, dissolvendo-se em cacos de luz sobre o preto absoluto. Seis relíquias catalogadas — onça, zebu, carcará, corrupião, mandacaru e juazeiro.</p>
+      <p class="historia">Brasil desde sempre. Cinco selos gravados a traço de ouro elevam o sertão à condição de império — o cavaleiro que não deve nada ao tempo, o Rio Grande em curvas de nível, a carranca guardiã do Velho Chico, o sol que forja os fortes e o mandacaru coroado da caatinga. Cada peça leva o carimbo postal Sertão Imperial · Est. MMXXIV.</p>
       <p class="malha">Exclusiva em malha preta</p>
     </div>
   </div>
 
   <div class="mosaico">
-    <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-capa-casal.jpg" alt="Coleção Relicário KOTX-N — casal vestindo as relíquias Onça e Mandacaru na última luz do sertão"/>
+    <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-capa.jpg" alt="Coleção Sertão Imperial KOTX-N — camiseta O Cavaleiro na luz dourada do sertão baiano"/>
       <span class="capa-veu">
-        <span class="capa-eyebrow">Seis relíquias · Malha preta</span>
+        <span class="capa-eyebrow">Cinco selos · Brasil desde sempre</span>
         <span class="capa-cta">Ver a coleção completa →</span>
       </span>
     </a>
     <div class="grade">
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-onca" target="_blank" rel="noopener">
+      <a class="tile" href="https://reserva.ink/kotxn/product/o-cavaleiro" target="_blank" rel="noopener">
         <span class="tile-num">I</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-onca.jpg" alt="Camiseta Relicário — Onça | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Onça</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-cavaleiro.jpg" alt="Camiseta O Cavaleiro — Sertão Imperial | gravura a ouro do cavaleiro atravessando a caatinga"/>
+        <span class="tile-nome">O Cavaleiro</span>
       </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-zebu" target="_blank" rel="noopener">
+      <a class="tile" href="https://reserva.ink/kotxn/product/rio-grande-2bf21358-7b2b-4bca-bb6e-3b5923c9cff3" target="_blank" rel="noopener">
         <span class="tile-num">II</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-zebu.jpg" alt="Camiseta Relicário — Zebu | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Zebu</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-rio-grande.jpg" alt="Camiseta Rio Grande — Sertão Imperial | topografia do rio em ouro com coordenadas do Oeste Baiano"/>
+        <span class="tile-nome">Rio Grande</span>
       </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-carcara" target="_blank" rel="noopener">
+      <a class="tile" href="https://reserva.ink/kotxn/product/carranca-190e1af3-e6ea-48a6-b337-fad873b12fa4" target="_blank" rel="noopener">
         <span class="tile-num">III</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-carcara.jpg" alt="Camiseta Relicário — Carcará | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Carcará</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-carranca.jpg" alt="Camiseta Carranca — Sertão Imperial | a guardiã do Velho Chico emoldurada a ouro"/>
+        <span class="tile-nome">Carranca</span>
       </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-corrupiao" target="_blank" rel="noopener">
+      <a class="tile" href="https://reserva.ink/kotxn/product/o-sol-352a5128-7bfb-468a-b72d-47a2ff5a69dc" target="_blank" rel="noopener">
         <span class="tile-num">IV</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-corrupiao.jpg" alt="Camiseta Relicário — Corrupião | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Corrupião</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-sol.jpg" alt="Camiseta O Sol — Sertão Imperial | onde o sol forja os fortes, selo em ouro sobre preto"/>
+        <span class="tile-nome">O Sol</span>
       </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-mandacaru" target="_blank" rel="noopener">
+      <a class="tile" href="https://reserva.ink/kotxn/product/mandacaru-imperial" target="_blank" rel="noopener">
         <span class="tile-num">V</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-mandacaru.jpg" alt="Camiseta Relicário — Mandacaru | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Mandacaru</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-mandacaru.jpg" alt="Camiseta Mandacaru Imperial — Sertão Imperial | o brasão coroado da caatinga"/>
+        <span class="tile-nome">Mandacaru Imperial</span>
       </a>
-      <a class="tile" href="https://reserva.ink/kotxn/product/relicario-juazeiro" target="_blank" rel="noopener">
-        <span class="tile-num">VI</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-juazeiro.jpg" alt="Camiseta Relicário — Juazeiro | mosaico de ouro cristalino sobre preto"/>
-        <span class="tile-nome">Juazeiro</span>
+      <a class="tile" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
+        <span class="tile-num">✦</span>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-selo.jpg" alt="Sertão Imperial — onde o sol forja os fortes · Brasil desde sempre · Est. MMXXIV"/>
+        <span class="tile-nome">A Coleção</span>
       </a>
     </div>
   </div>
 
   <div class="acoes">
-    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">Ver coleção Relicário</a>
+    <a class="btn" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">Ver coleção Sertão Imperial</a>
     <span class="preco">A partir de R$99,90 · Frete incluso</span>
   </div>
-</section>
-
-<!-- ═══ O ACERVO ═══ -->
-<div class="divisor" id="acervo">
-  <div class="divisor-linha"></div>
-  <span class="divisor-texto">O Acervo · 01 a 04</span>
-  <div class="divisor-linha"></div>
-</div>
-
-<section class="acervo">
-
-  <a class="acervo-card acervo-card--origem" id="origem" href="https://reserva.ink/kotxn/products?search_filter=origem-kotxn" target="_blank" rel="noopener">
-    <div class="acervo-foto">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa-origem.jpg" alt="Coleção Origem KOTX-N — Cotegipano Raiz e Cotegipana da Gema"/>
-    </div>
-    <div class="acervo-corpo">
-      <p class="carimbo">Coleção 04 <span>·</span> Gentílico</p>
-      <h3 class="acervo-titulo">Ori<em>gem</em></h3>
-      <p class="acervo-texto">Antes da marca, o lugar. Cotegipano Raiz e Cotegipana da Gema — o gentílico de quem nasceu entre o rio e o cerrado, tipografado no peito como quem carrega documento. Coordenadas gravadas, orgulho declarado. Em preto, azul marinho e branco.</p>
-      <div class="acervo-rodape">
-        <span class="acervo-link">Ver coleção Origem →</span>
-        <span class="acervo-preco">A partir de R$99,90 · Frete incluso</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="acervo-card" id="territorio" href="https://reserva.ink/kotxn/products?search_filter=territorio" target="_blank" rel="noopener">
-    <div class="acervo-foto">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Capa%20Territ%C3%B3rio%202.png" alt="Coleção Território KOTX-N — fauna e flora do sertão em linha geométrica de ouro"/>
-    </div>
-    <div class="acervo-corpo">
-      <p class="carimbo">Coleção 03 <span>·</span> Heráldica</p>
-      <h3 class="acervo-titulo">Terri<em>tório</em></h3>
-      <p class="acervo-texto">A fauna e a flora do sertão em heráldica contemporânea. Corrupião, carcará, lobo-guará, ipê-amarelo, mandacaru e buriti — cada espécie desenhada em linha geométrica de ouro, com o nome científico gravado na peça como quem assina um documento. Edição exclusiva em preto.</p>
-      <div class="acervo-rodape">
-        <span class="acervo-link">Ver coleção Território →</span>
-        <span class="acervo-preco">A partir de R$99,90 · Frete incluso</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="acervo-card" id="noturno" href="https://reserva.ink/kotxn/products?search_filter=noturno" target="_blank" rel="noopener">
-    <div class="acervo-foto">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa%20noturno.png" alt="Coleção Noturno KOTX-N — constelações do céu sertanejo do Oeste Baiano"/>
-    </div>
-    <div class="acervo-corpo">
-      <p class="carimbo">Coleção 02 <span>·</span> Constelações</p>
-      <h3 class="acervo-titulo">Notur<em>no</em></h3>
-      <p class="acervo-texto">Quando a cidade dorme, o céu sertanejo desperta. Nasce do olhar para cima — para o Cruzeiro do Sul, para a Lua do Cerrado, para o Caçador que atravessa a noite. <i>Sub caelo sertaneo, omnia conecta.</i></p>
-      <div class="acervo-rodape">
-        <span class="acervo-link">Ver coleção Noturno →</span>
-        <span class="acervo-preco">A partir de R$99,90 · Frete incluso</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="acervo-card" id="cotegipe-em-arte" href="https://reserva.ink/kotxn/products?search_filter=art" target="_blank" rel="noopener">
-    <div class="acervo-foto">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/CotegipeEmArte.png" alt="Coleção Cotegipe em Arte KOTX-N — arquitetura histórica da cidade em line art"/>
-    </div>
-    <div class="acervo-corpo">
-      <p class="carimbo">Coleção 01 <span>·</span> A fundadora</p>
-      <h3 class="acervo-titulo">Cotegipe em <em>Arte</em></h3>
-      <p class="acervo-texto">Uma homenagem em traços. Cada peça carrega uma ilustração exclusiva que transforma a memória de Cotegipe em arte vestível — suas igrejas, casas coloniais, rios e raízes desenhados em line art delicado sobre algodão branco.</p>
-      <div class="acervo-rodape">
-        <span class="acervo-link">Ver Cotegipe em Arte →</span>
-        <span class="acervo-preco">A partir de R$99,90 · Frete incluso</span>
-      </div>
-    </div>
-  </a>
-
 </section>
 
 <!-- ═══ A MARCA ═══ -->
