@@ -7,13 +7,16 @@
 <meta name="description" content="KOTX-N — Coleções exclusivas nascidas em Cotegipe, Bahia."/>
 <meta name="facebook-domain-verification" content="38bgygmzd7sw6k30mc0n4s0j5efndr"/>
 <meta name="theme-color" content="#0A0A0B"/>
+<link rel="canonical" href="https://kotxn.com.br/"/>
 
 <meta property="og:type" content="website"/>
+<meta property="og:locale" content="pt_BR"/>
 <meta property="og:site_name" content="KOTX-N"/>
 <meta property="og:title" content="KOTX-N — Catálogo de Coleções"/>
 <meta property="og:description" content="O nome da terra no peito. Coleções exclusivas nascidas em Cotegipe, Bahia."/>
 <meta property="og:url" content="https://kotxn.com.br/"/>
 <meta property="og:image" content="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/hero-origem.png"/>
+<meta property="og:image:alt" content="KOTX-N — Coleção Origem, camisetas Cotegipano e Cotegipana"/>
 <meta name="twitter:card" content="summary_large_image"/>
 
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -23,7 +26,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://faellvieyra.github.io" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="preload" as="image" href="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/hero-origem.png" fetchpriority="high"/>
+
+<script>document.documentElement.className+=' js';</script>
 
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,6 +47,8 @@
     --display:'Cinzel',serif;
     --corpo:'Cormorant Garamond',serif;
     --dado:'Courier Prime',monospace;
+
+    --nav-h:92px;
   }
 
   html{scroll-behavior:smooth;background:var(--noite)}
@@ -48,12 +57,22 @@
   a{color:inherit;text-decoration:none}
   a:focus-visible{outline:2px solid var(--ouro-claro);outline-offset:3px}
   ::selection{background:var(--ouro);color:var(--noite)}
-  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+  section[id],div[id]{scroll-margin-top:var(--nav-h)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}}
 
   .lamina{color:var(--ouro);vertical-align:middle}
 
+  /* ─── SKIP LINK ─── */
+  .pular{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ouro);color:var(--noite);font-family:var(--dado);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.9rem 1.6rem}
+  .pular:focus{left:1rem;top:1rem}
+
+  /* ─── REVELAR AO ROLAR ─── */
+  html.js .revela{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1)}
+  html.js .revela.visivel{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html.js .revela{opacity:1;transform:none}}
+
   /* ─── NAV ─── */
-  nav{
+  nav.principal{
     position:sticky;top:0;z-index:100;
     display:flex;justify-content:space-between;align-items:center;gap:1rem;
     padding:1.3rem 5vw;
@@ -85,6 +104,20 @@
   .hero-foto{position:relative;height:100%;min-height:78vh;overflow:hidden}
   .hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center top}
   .hero-foto::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--noite) 0%,transparent 38%)}
+
+  /* ─── ÍNDICE ─── */
+  .indice{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    gap:.2rem 0;padding:1.5rem 5vw;
+    border-top:1px solid var(--ouro-fosco);border-bottom:1px solid var(--ouro-fosco);
+    background:rgba(198,160,58,.02);
+  }
+  .indice a{
+    font-family:var(--dado);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--marfim-sub);padding:.5rem 1.15rem;transition:color .3s;white-space:nowrap;
+  }
+  .indice a:hover{color:var(--ouro)}
+  .indice a+a{border-left:1px solid var(--ouro-fosco)}
 
   /* ─── DIVISORES ─── */
   .divisor{display:flex;align-items:center;padding:4.5rem 5vw 2.5rem}
@@ -181,14 +214,30 @@
   .insta-titulo em{font-family:var(--corpo);font-style:italic;font-weight:300;color:var(--ouro)}
   .insta-sub{font-size:1.16rem;color:var(--marfim-sub);font-weight:300;margin-bottom:2.4rem}
 
-  /* ─── FOOTER ─── */border-top:1px solid var(--ouro-fosco);padding:2.6rem 5vw;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  /* ─── FOOTER ─── */
+  footer{border-top:1px solid var(--ouro-fosco);padding:2.6rem 5vw;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
   .footer-logo{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--display);font-size:1rem;font-weight:600;letter-spacing:.2em;color:var(--marfim)}
   .footer-logo .lamina{height:20px;width:auto}
   .footer-info{font-family:var(--dado);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--marfim-sub);transition:color .3s}
   a.footer-info:hover{color:var(--ouro)}
 
+  /* ─── BOTÃO FLUTUANTE WHATSAPP ─── */
+  .zap{
+    position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:120;
+    display:flex;align-items:center;justify-content:center;
+    width:54px;height:54px;border-radius:50%;
+    background:rgba(10,10,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--ouro-fosco);color:var(--ouro);
+    opacity:0;visibility:hidden;transform:translateY(14px);
+    transition:opacity .45s,transform .45s,visibility .45s,background .3s,border-color .3s,color .3s;
+  }
+  .zap.visivel{opacity:1;visibility:visible;transform:none}
+  .zap:hover{background:var(--ouro);border-color:var(--ouro);color:var(--noite)}
+  .zap svg{width:25px;height:25px;fill:currentColor}
+
   /* ─── RESPONSIVO ─── */
   @media (max-width:960px){
+    :root{--nav-h:80px}
     .hero{grid-template-columns:1fr;padding:0 5vw;min-height:auto}
     .hero-texto{padding:3.5rem 0}
     .hero-foto{min-height:52vh;height:52vh}
@@ -200,8 +249,11 @@
     .casa{grid-template-columns:1fr;gap:2.5rem}
   }
   @media (max-width:560px){
-    nav{padding:1rem 5vw}
+    nav.principal{padding:1rem 5vw}
     .nav-edicao{display:none}
+    .indice{padding:1rem 3vw;gap:0}
+    .indice a{padding:.45rem .8rem;font-size:.58rem;letter-spacing:.16em}
+    .indice a+a{border-left:none}
     .grade{grid-template-columns:repeat(2,1fr)}
     .acoes{flex-direction:column;align-items:flex-start;gap:1rem}
     .divisor-texto{letter-spacing:.28em;padding:0 1rem}
@@ -209,13 +261,17 @@
     .info-sep{height:1px;width:100%}
     .info-bloco{padding:3.5rem 5vw}
     footer{flex-direction:column;text-align:center}
+    .zap{width:48px;height:48px}
+    .zap svg{width:22px;height:22px}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<nav class="principal" aria-label="Navegação principal">
+  <a class="nav-logo" href="#" aria-label="KOTX-N — início">
     <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
     <span>KOTX-N</span>
   </a>
@@ -223,22 +279,35 @@
   <a class="nav-cta" href="https://reserva.ink/kotxn" target="_blank" rel="noopener">Ver loja</a>
 </nav>
 
+<main id="conteudo">
+
 <!-- ═══ HERO ═══ -->
 <header class="hero">
   <div class="hero-texto">
     <p class="hero-local">Cotegipe, Bahia — Brasil</p>
     <h1 class="hero-titulo">KOT<em>X</em><br/>— N</h1>
     <p class="hero-sub">O <em>nome da terra</em> no peito.<br/>Cotegipano. <em>Cotegipana.</em> Orgulho que se veste.</p>
-    <p class="hero-coord">Est. MMXXIV · 12°01'S · 44°15'W</p>
+    <p class="hero-coord">Est. MMXXIV · 12°02'S · 44°15'W</p>
     <div class="hero-acoes">
       <a class="btn" href="#origem">Vista sua origem</a>
       <a class="btn-linha" href="https://reserva.ink/kotxn" target="_blank" rel="noopener">Ir para a loja</a>
     </div>
   </div>
   <div class="hero-foto">
-    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/hero-origem.png" alt="KOTX-N — Coleção Origem, camisetas Cotegipano e Cotegipana"/>
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/hero-origem.png" alt="KOTX-N — Coleção Origem, camisetas Cotegipano e Cotegipana" fetchpriority="high" decoding="async"/>
   </div>
 </header>
+
+<!-- ═══ ÍNDICE ═══ -->
+<nav class="indice" aria-label="Índice de coleções">
+  <a href="#origem">Origem</a>
+  <a href="#territorio">Território</a>
+  <a href="#cotegipe-em-arte">Cotegipe em Arte</a>
+  <a href="#noturno">Noturno</a>
+  <a href="#relicario">Relicário</a>
+  <a href="#pigmento">Pigmento</a>
+  <a href="#sertao-imperial">Sertão Imperial</a>
+</nav>
 
 <!-- ═══ COLEÇÕES 2026 ═══ -->
 <div class="divisor" id="colecoes">
@@ -247,7 +316,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao faixa" id="origem">
+<section class="colecao faixa revela" id="origem">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 04 <span>·</span> Gentílico</p>
@@ -261,7 +330,7 @@
   </div>
 
   <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=origem-kotxn" target="_blank" rel="noopener">
-    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa-origem.jpg" alt="Coleção Origem KOTX-N — Cotegipano Raiz e Cotegipana da Gema"/>
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa-origem.jpg" alt="Coleção Origem KOTX-N — Cotegipano Raiz e Cotegipana da Gema" loading="lazy" decoding="async"/>
   </a>
 
   <div class="acoes">
@@ -276,7 +345,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao faixa" id="territorio">
+<section class="colecao faixa revela" id="territorio">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 03 <span>·</span> Heráldica</p>
@@ -290,7 +359,7 @@
   </div>
 
   <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=territorio" target="_blank" rel="noopener">
-    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Capa%20Territ%C3%B3rio%202.png" alt="Coleção Território KOTX-N — fauna e flora do sertão em linha geométrica de ouro"/>
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/Capa%20Territ%C3%B3rio%202.png" alt="Coleção Território KOTX-N — fauna e flora do sertão em linha geométrica de ouro" loading="lazy" decoding="async"/>
   </a>
 
   <div class="acoes">
@@ -305,7 +374,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao faixa" id="cotegipe-em-arte">
+<section class="colecao faixa revela" id="cotegipe-em-arte">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 01 <span>·</span> A fundadora</p>
@@ -319,7 +388,7 @@
   </div>
 
   <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=art" target="_blank" rel="noopener">
-    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/CotegipeEmArte.png" alt="Coleção Cotegipe em Arte KOTX-N — arquitetura histórica da cidade em line art"/>
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/CotegipeEmArte.png" alt="Coleção Cotegipe em Arte KOTX-N — arquitetura histórica da cidade em line art" loading="lazy" decoding="async"/>
   </a>
 
   <div class="acoes">
@@ -334,7 +403,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao faixa" id="noturno">
+<section class="colecao faixa revela" id="noturno">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 02 <span>·</span> Constelações</p>
@@ -348,7 +417,7 @@
   </div>
 
   <a class="faixa-foto" href="https://reserva.ink/kotxn/products?search_filter=noturno" target="_blank" rel="noopener">
-    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa%20noturno.png" alt="Coleção Noturno KOTX-N — constelações do céu sertanejo do Oeste Baiano"/>
+    <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/capa%20noturno.png" alt="Coleção Noturno KOTX-N — constelações do céu sertanejo do Oeste Baiano" loading="lazy" decoding="async"/>
   </a>
 
   <div class="acoes">
@@ -363,7 +432,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao" id="relicario">
+<section class="colecao revela" id="relicario">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 05 <span>·</span> A última luz</p>
@@ -378,7 +447,7 @@
 
   <div class="mosaico">
     <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=relic%C3%A1rio" target="_blank" rel="noopener">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-capa-casal.jpg" alt="Coleção Relicário KOTX-N — casal vestindo as relíquias Onça e Mandacaru na última luz do sertão"/>
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-capa-casal.jpg" alt="Coleção Relicário KOTX-N — casal vestindo as relíquias Onça e Mandacaru na última luz do sertão" loading="lazy" decoding="async"/>
       <span class="capa-veu">
         <span class="capa-eyebrow">Seis relíquias · Malha preta</span>
         <span class="capa-cta">Ver a coleção completa →</span>
@@ -387,32 +456,32 @@
     <div class="grade">
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-onca" target="_blank" rel="noopener">
         <span class="tile-num">I</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-onca.jpg" alt="Camiseta Relicário — Onça | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-onca.jpg" alt="Camiseta Relicário — Onça | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Onça</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-zebu" target="_blank" rel="noopener">
         <span class="tile-num">II</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-zebu.jpg" alt="Camiseta Relicário — Zebu | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-zebu.jpg" alt="Camiseta Relicário — Zebu | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Zebu</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-carcara" target="_blank" rel="noopener">
         <span class="tile-num">III</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-carcara.jpg" alt="Camiseta Relicário — Carcará | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-carcara.jpg" alt="Camiseta Relicário — Carcará | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Carcará</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-corrupiao" target="_blank" rel="noopener">
         <span class="tile-num">IV</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-corrupiao.jpg" alt="Camiseta Relicário — Corrupião | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-corrupiao.jpg" alt="Camiseta Relicário — Corrupião | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Corrupião</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-mandacaru" target="_blank" rel="noopener">
         <span class="tile-num">V</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-mandacaru.jpg" alt="Camiseta Relicário — Mandacaru | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-mandacaru.jpg" alt="Camiseta Relicário — Mandacaru | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Mandacaru</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/relicario-juazeiro" target="_blank" rel="noopener">
         <span class="tile-num">VI</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-juazeiro.jpg" alt="Camiseta Relicário — Juazeiro | mosaico de ouro cristalino sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/relicario-tile-juazeiro.jpg" alt="Camiseta Relicário — Juazeiro | mosaico de ouro cristalino sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Juazeiro</span>
       </a>
     </div>
@@ -430,7 +499,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao" id="pigmento">
+<section class="colecao revela" id="pigmento">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 06 <span>·</span> A primeira cor</p>
@@ -445,7 +514,7 @@
 
   <div class="mosaico">
     <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=pigmento" target="_blank" rel="noopener">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-capa.jpg" alt="Coleção Pigmento KOTX-N — a Divisa em ouro sobre malha preta na primeira luz do sertão"/>
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-capa.jpg" alt="Coleção Pigmento KOTX-N — a Divisa em ouro sobre malha preta na primeira luz do sertão" loading="lazy" decoding="async"/>
       <span class="capa-veu">
         <span class="capa-eyebrow">Cinco leituras · Cinco cores</span>
         <span class="capa-cta">Ver a coleção completa →</span>
@@ -454,32 +523,32 @@
     <div class="grade">
       <a class="tile" href="https://reserva.ink/kotxn/product/divisa" target="_blank" rel="noopener">
         <span class="tile-num">I</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-divisa.jpg" alt="Camiseta Divisa — a fronteira de Cotegipe escrita em microtexto de ouro sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-divisa.jpg" alt="Camiseta Divisa — a fronteira de Cotegipe escrita em microtexto de ouro sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">Divisa</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/digital-16c2dfbc-011e-4a49-b05c-d5c38f4b6011" target="_blank" rel="noopener">
         <span class="tile-num">II</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-digital.jpg" alt="Camiseta Digital — o território como impressão digital, marfim sobre bordeaux"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-digital.jpg" alt="Camiseta Digital — o território como impressão digital, marfim sobre bordeaux" loading="lazy" decoding="async"/>
         <span class="tile-nome">Digital</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/veia" target="_blank" rel="noopener">
         <span class="tile-num">III</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-veia.jpg" alt="Camiseta Veia — o curso d'água real de Cotegipe em marfim sobre verde escuro"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-veia.jpg" alt="Camiseta Veia — o curso d'água real de Cotegipe em marfim sobre verde escuro" loading="lazy" decoding="async"/>
         <span class="tile-nome">Veia</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/grao-8bef25f5-3a41-42a9-a138-82380b281e93" target="_blank" rel="noopener">
         <span class="tile-num">IV</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-grao.jpg" alt="Camiseta Grão — o mapa se desfazendo em grãos, preto sobre mostarda"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-grao.jpg" alt="Camiseta Grão — o mapa se desfazendo em grãos, preto sobre mostarda" loading="lazy" decoding="async"/>
         <span class="tile-nome">Grão</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/eu-cote" target="_blank" rel="noopener">
         <span class="tile-num">V</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-eucote.jpg" alt="Camiseta Eu Coté — a declaração de amor ao território, peça-cápsula em rosa antigo"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-eucote.jpg" alt="Camiseta Eu Coté — a declaração de amor ao território, peça-cápsula em rosa antigo" loading="lazy" decoding="async"/>
         <span class="tile-nome">Eu Coté · Cápsula</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/products?search_filter=pigmento" target="_blank" rel="noopener">
         <span class="tile-num">✦</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-manifesto.jpg" alt="Pigmento — as cores que a terra fabrica · 12°01'S 44°15'W"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/pigmento-tile-manifesto.jpg" alt="Pigmento — as cores que a terra fabrica · 12°02'S 44°15'W" loading="lazy" decoding="async"/>
         <span class="tile-nome">A Coleção</span>
       </a>
     </div>
@@ -497,7 +566,7 @@
   <div class="divisor-linha"></div>
 </div>
 
-<section class="colecao" id="sertao-imperial">
+<section class="colecao revela" id="sertao-imperial">
   <div class="cabecalho">
     <div>
       <p class="carimbo">Coleção 07 <span>·</span> Novo drop <span>·</span> Est. MMXXIV</p>
@@ -512,7 +581,7 @@
 
   <div class="mosaico">
     <a class="capa" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
-      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-capa.jpg" alt="Coleção Sertão Imperial KOTX-N — camiseta O Cavaleiro na luz dourada do sertão baiano"/>
+      <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-capa.jpg" alt="Coleção Sertão Imperial KOTX-N — camiseta O Cavaleiro na luz dourada do sertão baiano" loading="lazy" decoding="async"/>
       <span class="capa-veu">
         <span class="capa-eyebrow">Cinco selos · Brasil desde sempre</span>
         <span class="capa-cta">Ver a coleção completa →</span>
@@ -521,32 +590,32 @@
     <div class="grade">
       <a class="tile" href="https://reserva.ink/kotxn/product/o-cavaleiro" target="_blank" rel="noopener">
         <span class="tile-num">I</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-cavaleiro.jpg" alt="Camiseta O Cavaleiro — Sertão Imperial | gravura a ouro do cavaleiro atravessando a caatinga"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-cavaleiro.jpg" alt="Camiseta O Cavaleiro — Sertão Imperial | gravura a ouro do cavaleiro atravessando a caatinga" loading="lazy" decoding="async"/>
         <span class="tile-nome">O Cavaleiro</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/rio-grande-2bf21358-7b2b-4bca-bb6e-3b5923c9cff3" target="_blank" rel="noopener">
         <span class="tile-num">II</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-rio-grande.jpg" alt="Camiseta Rio Grande — Sertão Imperial | topografia do rio em ouro com coordenadas do Oeste Baiano"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-rio-grande.jpg" alt="Camiseta Rio Grande — Sertão Imperial | topografia do rio em ouro com coordenadas do Oeste Baiano" loading="lazy" decoding="async"/>
         <span class="tile-nome">Rio Grande</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/carranca-190e1af3-e6ea-48a6-b337-fad873b12fa4" target="_blank" rel="noopener">
         <span class="tile-num">III</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-carranca.jpg" alt="Camiseta Carranca — Sertão Imperial | a guardiã do Velho Chico emoldurada a ouro"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-carranca.jpg" alt="Camiseta Carranca — Sertão Imperial | a guardiã do Velho Chico emoldurada a ouro" loading="lazy" decoding="async"/>
         <span class="tile-nome">Carranca</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/o-sol-352a5128-7bfb-468a-b72d-47a2ff5a69dc" target="_blank" rel="noopener">
         <span class="tile-num">IV</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-sol.jpg" alt="Camiseta O Sol — Sertão Imperial | onde o sol forja os fortes, selo em ouro sobre preto"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-sol.jpg" alt="Camiseta O Sol — Sertão Imperial | onde o sol forja os fortes, selo em ouro sobre preto" loading="lazy" decoding="async"/>
         <span class="tile-nome">O Sol</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/product/mandacaru-imperial" target="_blank" rel="noopener">
         <span class="tile-num">V</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-mandacaru.jpg" alt="Camiseta Mandacaru Imperial — Sertão Imperial | o brasão coroado da caatinga"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-mandacaru.jpg" alt="Camiseta Mandacaru Imperial — Sertão Imperial | o brasão coroado da caatinga" loading="lazy" decoding="async"/>
         <span class="tile-nome">Mandacaru Imperial</span>
       </a>
       <a class="tile" href="https://reserva.ink/kotxn/products?search_filter=sertao-imperial" target="_blank" rel="noopener">
         <span class="tile-num">✦</span>
-        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-selo.jpg" alt="Sertão Imperial — onde o sol forja os fortes · Brasil desde sempre · Est. MMXXIV"/>
+        <img src="https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/sertao-imperial-tile-selo.jpg" alt="Sertão Imperial — onde o sol forja os fortes · Brasil desde sempre · Est. MMXXIV" loading="lazy" decoding="async"/>
         <span class="tile-nome">A Coleção</span>
       </a>
     </div>
@@ -559,7 +628,7 @@
 </section>
 
 <!-- ═══ A MARCA ═══ -->
-<section class="marca">
+<section class="marca revela">
   <svg class="lamina" viewBox="-30 -134 60 214" aria-label="O Vértice — marca KOTX-N"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
   <div class="marca-nome">O Vértice</div>
   <div class="marca-tagline">território que vira força</div>
@@ -568,7 +637,7 @@
 </section>
 
 <!-- ═══ A CASA ═══ -->
-<section class="casa">
+<section class="casa revela">
   <div>
     <p class="carimbo">A casa</p>
     <h2 class="casa-titulo">Nascida no<br/><em>coração</em><br/>do sertão.</h2>
@@ -648,6 +717,8 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <span class="footer-logo">
     <svg class="lamina" viewBox="-30 -134 60 214" aria-hidden="true"><polygon points="0,-124 -24,-47 0,76 24,-47" fill="currentColor"/></svg>
@@ -656,6 +727,93 @@
   <span class="footer-info">© 2026 KOTX-N · Cotegipe, BA · 47900-172</span>
   <a class="footer-info" href="mailto:correio@kotxn.com.br">correio@kotxn.com.br</a>
 </footer>
+
+<!-- ═══ WHATSAPP FLUTUANTE ═══ -->
+<a class="zap" id="zap" href="https://wa.me/5577999293901?text=Ol%C3%A1!%20Vim%20pelo%20cat%C3%A1logo%20KOTX-N%20e%20gostaria%20de%20conhecer%20as%20cole%C3%A7%C3%B5es%20dispon%C3%ADveis.%20%F0%9F%96%A4" target="_blank" rel="noopener" aria-label="Falar com a KOTX-N no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38c1.45.79 3.08 1.21 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.02h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24z"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KOTX-N",
+  "alternateName": "KOTXN",
+  "url": "https://kotxn.com.br/",
+  "logo": "https://kotxn.com.br/favicon-32x32.png",
+  "image": "https://faellvieyra.github.io/kotxn/imagens/kotxn/produtos/hero-origem.png",
+  "description": "Streetwear premium nascido em Cotegipe, Bahia — coleções autorais inspiradas no sertão do Oeste Baiano.",
+  "email": "correio@kotxn.com.br",
+  "foundingDate": "2024",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Travessa Duque de Caxias, 119 — Centro",
+    "addressLocality": "Cotegipe",
+    "addressRegion": "BA",
+    "postalCode": "47900-172",
+    "addressCountry": "BR"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+55-77-99929-3901",
+    "email": "correio@kotxn.com.br",
+    "areaServed": "BR",
+    "availableLanguage": "Portuguese"
+  },
+  "sameAs": [
+    "https://www.instagram.com/kotx.n",
+    "https://reserva.ink/kotxn"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Coleções KOTX-N 2026",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Cotegipe em Arte","url":"https://kotxn.com.br/#cotegipe-em-arte"},
+    {"@type":"ListItem","position":2,"name":"Noturno","url":"https://kotxn.com.br/#noturno"},
+    {"@type":"ListItem","position":3,"name":"Território","url":"https://kotxn.com.br/#territorio"},
+    {"@type":"ListItem","position":4,"name":"Origem","url":"https://kotxn.com.br/#origem"},
+    {"@type":"ListItem","position":5,"name":"Relicário","url":"https://kotxn.com.br/#relicario"},
+    {"@type":"ListItem","position":6,"name":"Pigmento","url":"https://kotxn.com.br/#pigmento"},
+    {"@type":"ListItem","position":7,"name":"Sertão Imperial","url":"https://kotxn.com.br/#sertao-imperial"}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var alvos = document.querySelectorAll('.revela');
+
+  if (!('IntersectionObserver' in window) || reduz) {
+    for (var i=0;i<alvos.length;i++) alvos[i].classList.add('visivel');
+  } else {
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.05});
+    alvos.forEach(function(el){ obs.observe(el); });
+  }
+
+  var zap = document.getElementById('zap');
+  var tick = false;
+  function checa(){
+    if (window.scrollY > window.innerHeight * 0.7) zap.classList.add('visivel');
+    else zap.classList.remove('visivel');
+    tick = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!tick) { window.requestAnimationFrame(checa); tick = true; }
+  }, {passive:true});
+  checa();
+})();
+</script>
 
 </body>
 </html>
