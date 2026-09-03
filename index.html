@@ -469,8 +469,131 @@
     .footer-bar span:nth-child(2) { flex: 1; background: var(--ouro); }
     .footer-bar span:nth-child(3) { flex: 1; background: var(--marfim); }
 
+    /* ── INFO SECTION ── */
+    .info-section {
+      display: grid;
+      grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr;
+      border-top: 0.5px solid rgba(198,160,58,0.15);
+      border-bottom: 0.5px solid rgba(198,160,58,0.15);
+    }
+    .info-divider { background: rgba(198,160,58,0.15); }
+    .info-bloco { padding: 5rem 3.5rem; }
+    .info-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      color: var(--ouro);
+      opacity: 0.6;
+      margin-bottom: 1.2rem;
+    }
+    .info-titulo {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      color: var(--marfim);
+      line-height: 1.2;
+      margin-bottom: 1.8rem;
+    }
+    .info-titulo em { font-style: italic; color: var(--ouro); }
+    .info-texto {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 2;
+      color: var(--marfim);
+      opacity: 0.5;
+      margin-bottom: 2rem;
+    }
+    .info-texto strong { color: var(--ouro); opacity: 1; font-weight: 700; }
+    .info-link {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--ouro);
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(198,160,58,0.4);
+      padding-bottom: 2px;
+      transition: all 0.3s;
+    }
+    .info-link:hover { opacity: 0.7; }
+    .info-nota {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--marfim);
+      opacity: 0.25;
+      margin-top: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* Tamanhos */
+    .tamanhos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(198,160,58,0.15);
+      margin-bottom: 1.5rem;
+    }
+    .tamanho-item {
+      background: var(--preto);
+      padding: 1.2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .tamanho-letra {
+      font-family: var(--font-cinzel);
+      font-size: 1.4rem;
+      color: var(--ouro);
+      font-weight: 500;
+    }
+    .tamanho-medida {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--marfim);
+      opacity: 0.4;
+      letter-spacing: 0.1em;
+    }
+
+    /* Instagram section */
+    .insta-section {
+      padding: 6rem 4rem;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(198,160,58,0.15);
+      background: rgba(198,160,58,0.03);
+    }
+    .insta-inner { max-width: 500px; margin: 0 auto; }
+    .insta-titulo {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--marfim);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .insta-titulo em { font-style: italic; color: var(--ouro); }
+    .insta-sub {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.9;
+      color: var(--marfim);
+      opacity: 0.45;
+      margin-bottom: 2.5rem;
+    }
+    .btn-insta-grande {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--marfim);
+      border: 0.5px solid rgba(243,240,234,0.3);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-insta-grande:hover { border-color: var(--ouro); color: var(--ouro); }
+
     @media (max-width: 768px) {
-      .frete-section { padding: 4rem 1.5rem; }
+      .info-section { grid-template-columns: 1fr; }
+      .info-divider { height: 0.5px; width: 100%; }
+      .info-bloco { padding: 3.5rem 1.5rem; }
+      .insta-section { padding: 4rem 1.5rem; }
     }
 
     @keyframes fadeUp {
@@ -625,17 +748,67 @@
     </div>
   </section>
 
-  <!-- ═══ FRETE ═══ -->
-  <section class="frete-section">
-    <div class="frete-inner">
-      <p class="frete-eyebrow">— ENTREGA</p>
-      <h2 class="frete-titulo">Entregamos em<br/>todo o <em>Brasil</em></h2>
-      <p class="frete-sub">O frete é calculado automaticamente no checkout de acordo com o seu CEP.<br/>Parcele em até 6x sem juros.</p>
-      <a href="https://reserva.ink/kotxn" target="_blank" class="btn-primary">CALCULAR NA LOJA</a>
+  <!-- ═══ INFORMAÇÕES AO CLIENTE ═══ -->
+  <section class="info-section">
+
+    <!-- Tamanhos -->
+    <div class="info-bloco info-tamanhos">
+      <p class="info-eyebrow">— TAMANHOS</p>
+      <h2 class="info-titulo">Encontre o seu<br/><em>tamanho</em></h2>
+      <div class="tamanhos-grid">
+        <div class="tamanho-item">
+          <span class="tamanho-letra">P</span>
+          <span class="tamanho-medida">Busto 88–93cm</span>
+        </div>
+        <div class="tamanho-item">
+          <span class="tamanho-letra">M</span>
+          <span class="tamanho-medida">Busto 94–99cm</span>
+        </div>
+        <div class="tamanho-item">
+          <span class="tamanho-letra">G</span>
+          <span class="tamanho-medida">Busto 100–105cm</span>
+        </div>
+        <div class="tamanho-item">
+          <span class="tamanho-letra">GG</span>
+          <span class="tamanho-medida">Busto 106–111cm</span>
+        </div>
+      </div>
+      <p class="info-nota">Medidas aproximadas. Consulte a tabela completa na página do produto.</p>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <!-- Entrega -->
+    <div class="info-bloco info-entrega">
+      <p class="info-eyebrow">— ENTREGA</p>
+      <h2 class="info-titulo">Entregamos em<br/>todo o <em>Brasil</em></h2>
+      <p class="info-texto">O frete é calculado automaticamente no checkout de acordo com o seu CEP. Parcele em até 6x sem juros via cartão de crédito ou pague com PIX.</p>
+      <a href="https://reserva.ink/kotxn" target="_blank" class="info-link">CALCULAR NA LOJA →</a>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <!-- Trocas -->
+    <div class="info-bloco info-troca">
+      <p class="info-eyebrow">— TROCAS E DEVOLUÇÕES</p>
+      <h2 class="info-titulo">Compre com<br/><em>tranquilidade</em></h2>
+      <p class="info-texto">Após receber seu pedido, você tem <strong>30 dias</strong> para solicitar troca por tamanho, cor ou modelo. Basta acessar sua conta na loja com o e-mail utilizado na compra e selecionar o pedido. A primeira troca é por conta da Ink.</p>
+      <a href="https://cloudchat3.cloudhumans.com/hc/central-de-ajuda-reserva-ink/articles/1765284538-como-funcionam-as-trocas-na-ink" target="_blank" class="info-link">SAIBA MAIS →</a>
+    </div>
+
+  </section>
+
+  <!-- ═══ INSTAGRAM ═══ -->
+  <section class="insta-section">
+    <div class="insta-inner">
+      <p class="info-eyebrow">— @KOTX.N</p>
+      <h2 class="insta-titulo">Veja as peças<br/>no <em>mundo real</em></h2>
+      <p class="insta-sub">Siga o Instagram da KOTX-N e descubra como cada estampa ganha vida fora do estúdio.</p>
+      <a href="https://www.instagram.com/kotx.n" target="_blank" class="btn-insta-grande">SEGUIR NO INSTAGRAM</a>
     </div>
   </section>
 
-  <!-- ═══ ENCERRAMENTO ═══ -->
+
   <section class="encerramento" id="contato">
     <h2 class="encerramento-titulo">Sua peça<br/>está <em>esperando.</em></h2>
     <p class="encerramento-sub">LOJA ONLINE · WHATSAPP · COTEGIPE, BA</p>
