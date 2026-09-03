@@ -127,12 +127,15 @@
 
   /* ─── COLEÇÃO (MOSAICO) ─── */
   .colecao{padding:2rem 5vw 5.5rem}
-  .cabecalho{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
+  .cabecalho{
+    display:grid;grid-template-columns:minmax(0,.68fr) minmax(0,1fr);
+    gap:clamp(2rem,4vw,4.5rem);align-items:start;
+    border-top:1px solid var(--ouro-fosco);padding-top:2.2rem;margin-bottom:3rem;
+  }
   .carimbo{font-family:var(--dado);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ouro);margin-bottom:1.3rem}
   .carimbo span{color:var(--marfim-sub)}
-  .titulo{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,4.6vw,4.2rem);line-height:1.02}
+  .titulo{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,5.4vw,5.4rem);line-height:1.02}
   .titulo em{font-family:var(--corpo);font-style:italic;font-weight:300;color:var(--ouro)}
-  .fio{width:64px;height:1px;background:var(--ouro);margin-bottom:1.4rem}
   .historia{font-size:1.16rem;line-height:1.8;color:var(--marfim-sub);font-weight:300;max-width:56ch}
   .historia i{font-style:italic;color:var(--ouro)}
   .malha{font-family:var(--dado);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);margin-top:1.2rem}
@@ -323,7 +326,6 @@
       <h2 class="titulo">Ori<em>gem</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">Antes da marca, o lugar. Cotegipano Raiz e Cotegipana da Gema — o gentílico de quem nasceu entre o rio e o cerrado, tipografado no peito como quem carrega documento. Coordenadas gravadas, orgulho declarado. Para quem vive aqui e para quem leva Cotegipe onde estiver.</p>
       <p class="malha">Em preto, azul marinho e branco</p>
     </div>
@@ -352,7 +354,6 @@
       <h2 class="titulo">Terri<em>tório</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">A fauna e a flora do sertão em heráldica contemporânea. Corrupião, carcará, lobo-guará, ipê-amarelo, mandacaru e buriti — cada espécie desenhada em linha geométrica de ouro, com o nome científico gravado na peça como quem assina um documento.</p>
       <p class="malha">Edição exclusiva em preto</p>
     </div>
@@ -381,7 +382,6 @@
       <h2 class="titulo">Cotegipe em <em>Arte</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">Uma homenagem em traços. Cada peça carrega uma ilustração exclusiva que transforma a memória de Cotegipe em arte vestível — suas igrejas, casas coloniais, rios e raízes desenhados em line art delicado. Para quem tem orgulho de onde vem.</p>
       <p class="malha">Sobre algodão branco</p>
     </div>
@@ -410,7 +410,6 @@
       <h2 class="titulo">Notur<em>no</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">Quando a cidade dorme, o céu sertanejo desperta. Nasce do olhar para cima — para o Cruzeiro do Sul, para a Lua do Cerrado, para o Caçador que atravessa a noite. Cada estampa é uma constelação do sertão do Oeste Baiano impressa em algodão premium. <i>Sub caelo sertaneo, omnia conecta.</i></p>
       <p class="malha">Sob o céu sertanejo, tudo se conecta</p>
     </div>
@@ -439,7 +438,6 @@
       <h2 class="titulo">Relic<em>ário</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">O bruto feito ouro. Fauna e flora do sertão lapidadas em mosaico de ouro cristalino, dissolvendo-se em cacos de luz sobre o preto absoluto. Seis relíquias catalogadas — onça, zebu, carcará, corrupião, mandacaru e juazeiro.</p>
       <p class="malha">Exclusiva em malha preta</p>
     </div>
@@ -506,7 +504,6 @@
       <h2 class="titulo">Pig<em>mento</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">Depois d'A Última Luz, a terra devolve a cor. Um único mapa, cinco leituras — a palavra, a identidade, a água, a matéria e o amor — cada uma casada com uma única cor de malha, sem repetição. Na Veia, o curso d'água real de Cotegipe cruza o território de ponta a ponta.</p>
       <p class="malha">As cores que a terra fabrica · preto · bordeaux · verde · mostarda · rosa antigo</p>
     </div>
@@ -573,7 +570,6 @@
       <h2 class="titulo">Sertão<br/>Imp<em>erial</em></h2>
     </div>
     <div>
-      <div class="fio"></div>
       <p class="historia">Brasil desde sempre. Cinco selos gravados a traço de ouro elevam o sertão à condição de império — o cavaleiro que não deve nada ao tempo, o Rio Grande em curvas de nível, a carranca guardiã do Velho Chico, o sol que forja os fortes e o mandacaru coroado da caatinga. Cada peça leva o carimbo postal Sertão Imperial · Est. MMXXIV.</p>
       <p class="malha">Exclusiva em malha preta</p>
     </div>
